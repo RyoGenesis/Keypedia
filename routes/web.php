@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('login');
 });
+
+//temp route
+
+Route::get('/home', function () {
+    return view('home');
+});
+
+Route::get('/view-keyboard', function () {
+    return view('view_keyboard');
+});
