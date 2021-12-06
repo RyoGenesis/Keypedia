@@ -18,10 +18,10 @@
                 <p class="mb-4 text-white">US$ 100</p>
                 <div>
                     <button class="btn btn-outline-light btn-bg-purple">
-                        Delete Category
+                        Delete Keyboard
                     </button>
                     <a href="/" class="btn btn-outline-light btn-bg-purple">
-                        Update Category
+                        Update Keyboard
                     </a>
                 </div> 
             </div>
@@ -34,10 +34,10 @@
                 <p class="mb-4 text-white">US$ 100</p>
                 <div>
                     <button class="btn btn-outline-light btn-bg-purple">
-                        Delete Category
+                        Delete Keyboard
                     </button>
                     <a href="/" class="btn btn-outline-light btn-bg-purple">
-                        Update Category
+                        Update Keyboard
                     </a>
                 </div> 
             </div>
@@ -50,10 +50,10 @@
                 <p class="mb-4 text-white">US$ 100</p>
                 <div>
                     <button class="btn btn-outline-light btn-bg-purple">
-                        Delete Category
+                        Delete Keyboard
                     </button>
                     <a href="/" class="btn btn-outline-light btn-bg-purple">
-                        Update Category
+                        Update Keyboard
                     </a>
                 </div> 
             </div>
@@ -66,10 +66,10 @@
                 <p class="mb-4 text-white">US$ 100</p>
                 <div>
                     <button class="btn btn-outline-light btn-bg-purple">
-                        Delete Category
+                        Delete Keyboard
                     </button>
                     <a href="/" class="btn btn-outline-light btn-bg-purple">
-                        Update Category
+                        Update Keyboard
                     </a>
                 </div> 
             </div>
@@ -82,10 +82,10 @@
                 <p class="mb-4 text-white">US$ 100</p>
                 <div>
                     <button class="btn btn-outline-light btn-bg-purple">
-                        Delete Category
+                        Delete Keyboard
                     </button>
                     <a href="/" class="btn btn-outline-light btn-bg-purple">
-                        Update Category
+                        Update Keyboard
                     </a>
                 </div> 
             </div>
@@ -98,14 +98,14 @@
                 <p class="mb-4 text-white">US$ 100</p>
                 <div>
                     <button class="btn btn-outline-light btn-bg-purple">
-                        Delete Category
+                        Delete Keyboard
                     </button>
                     <a href="/" class="btn btn-outline-light btn-bg-purple">
-                        Update Category
+                        Update Keyboard
                     </a>
                 </div> 
             </div>
-            
+
         </div>
     </div>
 @endsection

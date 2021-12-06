@@ -48,7 +48,7 @@
                             <li><a class="dropdown-item" href="#">Logout</a></li>
                         </ul>
                     </li> --}}
-                    <p class="navbar-text ms-2 mb-0">@php echo date("D, d-M-Y"); @endphp</p>
+                    <p class="navbar-text ms-2 mb-0">@php date_default_timezone_set('Asia/Jakarta'); echo date("D, d-M-Y"); @endphp</p>     
                 </ul>
             </div>
         </div>
