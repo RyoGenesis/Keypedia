@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('login');
 });
 
-//temp route
+//----------temporary routes
 
 Route::get('/home', function () {
     return view('home');
@@ -26,3 +26,9 @@ Route::get('/home', function () {
 Route::get('/view-keyboard', function () {
     return view('view_keyboard');
 });
+
+Route::get('/manage-categories', function () {
+    return view('manage_categories');
+});
+
+//---------temporary routes end
