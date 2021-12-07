@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -22,20 +23,17 @@ Route::get('/login',[AuthController::class,"login"]);
 Route::get('/register',[AuthController::class,"register"]);
 Route::post('/addUser',[AuthController::class,"addUser"]);
 Route::post('/doLogin',[AuthController::class,"doLogin"]);
-Route::get('/logout', [AuthController::class,"logout"])->name('logout.perform');
+Route::get('/logout', [AuthController::class,"logout"]);
 //----------temporary routes
 
 
-Route::get('/home', function () {
-    
-    return view('home');
-});
+Route::get('/home', [HomeController::class,'index']);
 
-Route::get('/view-keyboard', function () {
+Route::get('/categories/{name}', function () {
     return view('view_keyboard');
 });
 
-Route::get('/manage-categories', function () {
+Route::get('/categories/manage', function () {
     return view('manage_categories');
 });
 

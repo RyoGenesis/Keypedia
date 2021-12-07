@@ -12,4 +12,8 @@ class Category extends Model
     public function keyboard(){
         return $this->hasMany(Keyboard::class);
     }
+
+    public function getAll(){
+        return $this->all();
+    }
 }
