@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -11,6 +13,31 @@ class AuthController extends Controller
         return view('login');
 
     }
+    public function doLogin(Request $request){
+        $validation = [
+            "email_address"=>"required",
+            "password"=>"required"
+        ];
+        $temp = $request->validate($validation);
+        $user = User::where('email_address','=',$request["email_address"])->where('password','=',$request['password'])->first();
+        if($user == null)return redirect()->back()->withErrors("Invalid Account!");
+    }
+    public function addUser(Request $request){
+        $validation = [
+            "username"=>'required',
+            "email_address"=>"required|email|unique:users",
+            "password"=>"required",
+            "confirm"=>"required|same:password",
+            "address"=>"required",
+            "gender"=>"required",
+            "dob"=>"required"
+        ];
+        $temp = $request->validate($validation);
+    
+
+
+    }
+
     public function register(){
         return view('register');
     }

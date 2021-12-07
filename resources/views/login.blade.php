@@ -8,7 +8,7 @@
         </div>
         <div class="card-body">
             <div class="w-75 m-auto">
-                <form action="">
+                <form action="/doLogin" method="POST">
                     @csrf
                     <table class="table table-borderless">
                         <thead>
@@ -17,11 +17,26 @@
                         <tbody>
                             <tr>
                                 <td class="col-5"><label for="email">E-mail Address</label></td>
-                                <td><input class="form-control" type="text" name="email" id="email"></td>
+                                <td>
+                                    <input class="form-control" type="text" name="email_address" id="email" @error('email_address') is-invalid @enderror>
+                                    @error('email_address')
+                                        <p>{{$message}}</p>
+                                    @enderror
+                                </td>
                             </tr>
                             <tr>
                                 <td class="col-5"><label  for="password">Password</label></td>
-                                <td><input class="form-control" type="password" name="password" id="password"></td>
+                                <td>
+                                    <input class="form-control" type="password" name="password" id="password" @error('password') is-invalid @enderror>
+                                    @error('password')
+                                        <p>{{$message}}</p>
+                                    @enderror
+                                    @if ($errors != null)
+                                        @foreach ($errors->all() as $error)
+                                            @if($error == "Invalid Account!")<p>{{$error}}</p>@endif
+                                        @endforeach
+                                    @endif
+                                </td>
                             </tr>                
                             
                             <tr>
