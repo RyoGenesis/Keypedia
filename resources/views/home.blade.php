@@ -12,14 +12,16 @@
         </div>
         <div class="col-12 d-flex justify-content-center px-5 flex-wrap">
             @foreach ($categories as $category)
-            <div class="col-3 card-box-item m-4 p-1 rounded-3">
-                <div class="border border-secondary rounded-3 h-100 text-center d-flex flex-column">
-                    <p class="mt-3 text-primary fw-bold">{{$category->category_name}}</p>
-                    <div class="bg-white rounded-bottom flex-grow-1 d-flex align-items-center">
-                        <img class="img-fluid rounded-bottom" src="{{asset('storage/'.$category->image_path)}}" alt="">
-                    </div>
-                </div>  
-            </div>
+                <div class="col-3 card-box-item m-4 p-1 rounded-3">
+                    <a class="text-decoration-none" href="{{ url('categories/'.$category->id)}}">
+                        <div class="border border-secondary rounded-3 h-100 text-center d-flex flex-column">
+                            <p class="mt-3 text-primary fw-bold">{{$category->category_name}}</p>
+                            <div class="bg-white rounded-bottom flex-grow-1 d-flex align-items-center">
+                                <img class="img-fluid rounded-bottom" src="{{asset('storage/'.$category->image_path)}}" alt="">
+                            </div>
+                        </div> 
+                    </a>
+                </div>
             @endforeach               
         </div>
     </div>

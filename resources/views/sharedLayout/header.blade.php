@@ -28,7 +28,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 @foreach ($categories as $category)
-                                    <li><a class="dropdown-item" href="{{ url('categories/'.$category->category_name)}}">{{$category->category_name}}</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('categories/'.$category->id)}}">{{$category->category_name}}</a></li>
                                 @endforeach
                             </ul>
                         </li>
@@ -39,7 +39,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Add Keyboard</a></li>
-                                <li><a class="dropdown-item" href="categories/manage">Manage Categories</a></li>
+                                <li><a class="dropdown-item" href="/manage">Manage Categories</a></li>
                                 <li><a class="dropdown-item" href="#">Change Password</a></li>
                                 <li><a class="dropdown-item" href="/logout">Logout</a></li>
                             </ul>

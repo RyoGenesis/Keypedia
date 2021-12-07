@@ -29,7 +29,7 @@ Route::get('/logout', [AuthController::class,"logout"]);
 
 Route::get('/home', [HomeController::class,'index']);
 
-Route::get('/categories/{name}',[CategoryController::class,"manage"]);
-Route::get('/categories/manage', [CategoryController::class,"index"]);
+Route::get('/categories/{id}',[CategoryController::class,"index"]);
+Route::get('/manage', [CategoryController::class,"manage"]);
 
 //---------temporary routes end
