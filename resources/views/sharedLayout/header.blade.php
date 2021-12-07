@@ -9,45 +9,59 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapsed">
                 <ul class="ms-auto navbar-nav mb-2 mb-lg-0">
+                    @guest
+                        
+                    
+                    
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/login">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/register">Register</a>
                     </li>
-                    {{-- temporary comment until session stuff handled --}}
+                    @endguest
                     
-                    {{-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Categories
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">CategDummy1</a></li>
-                            <li><a class="dropdown-item" href="#">CategDummy2</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            MANAGER
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Add Keyboard</a></li>
-                            <li><a class="dropdown-item" href="#">Manage Categories</a></li>
-                            <li><a class="dropdown-item" href="#">Change Password</a></li>
-                            <li><a class="dropdown-item" href="#">Logout</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            USER
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">My Cart</a></li>
-                            <li><a class="dropdown-item" href="#">Transaction History</a></li>
-                            <li><a class="dropdown-item" href="#">Change Password</a></li>
-                            <li><a class="dropdown-item" href="#">Logout</a></li>
-                        </ul>
-                    </li> --}}
+                   
+                    @auth
+                    
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Categories
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">CategDummy1</a></li>
+                                <li><a class="dropdown-item" href="#">CategDummy2</a></li>
+                            </ul>
+                        </li>
+                        @if(Auth::user()->role->role_name == "Manager")
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                MANAGER
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Add Keyboard</a></li>
+                                <li><a class="dropdown-item" href="#">Manage Categories</a></li>
+                                <li><a class="dropdown-item" href="#">Change Password</a></li>
+                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                            </ul>
+                        </li>
+                        @endif
+                        @if(Auth::user()->role->role_name == "Customer")
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                USER
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">My Cart</a></li>
+                                <li><a class="dropdown-item" href="#">Transaction History</a></li>
+                                <li><a class="dropdown-item" href="#">Change Password</a></li>
+                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                            </ul>
+                        </li>    
+                        @endif
+                    @endauth
+                    
+                    
                     <p class="navbar-text ms-2 mb-0">@php date_default_timezone_set('Asia/Jakarta'); echo date("D, d-M-Y"); @endphp</p>     
                 </ul>
             </div>
