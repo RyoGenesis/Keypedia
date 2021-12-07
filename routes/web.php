@@ -22,6 +22,7 @@ Route::get('/login',[AuthController::class,"login"]);
 Route::get('/register',[AuthController::class,"register"]);
 Route::post('/addUser',[AuthController::class,"addUser"]);
 Route::post('/doLogin',[AuthController::class,"doLogin"]);
+Route::get('/logout', [AuthController::class,"logout"])->name('logout.perform');
 //----------temporary routes
 
 

@@ -9,9 +9,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapsed">
                 <ul class="ms-auto navbar-nav mb-2 mb-lg-0">
-                    @guest
-                        
-                    
+                    @guest         
                     
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/login">Login</a>
@@ -42,7 +40,7 @@
                                 <li><a class="dropdown-item" href="#">Add Keyboard</a></li>
                                 <li><a class="dropdown-item" href="#">Manage Categories</a></li>
                                 <li><a class="dropdown-item" href="#">Change Password</a></li>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
                             </ul>
                         </li>
                         @endif
@@ -55,7 +53,7 @@
                                 <li><a class="dropdown-item" href="#">My Cart</a></li>
                                 <li><a class="dropdown-item" href="#">Transaction History</a></li>
                                 <li><a class="dropdown-item" href="#">Change Password</a></li>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
                             </ul>
                         </li>    
                         @endif
