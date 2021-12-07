@@ -8,66 +8,22 @@
         </div>
 
         <div class="col-12 d-flex justify-content-center px-5 flex-wrap">
+            @foreach ($categories as $category)
             <div class="col-3 card-box-item m-4 p-2 border rounded-3 text-center">
                 <div>
-                    <img class="img-fluid" src="https://www.wasdkeyboards.com/pub/media/catalog/product/cache/cee7a71fd82c474592eb38179a21d892/8/7/87-blue.png" alt="">
+                    <img class="img-fluid" src="{{asset('storage/'.$category->image_path)}}" alt="">
                 </div>
-                <p class="mt-1 mb-4 fw-bold">87 Key Keyboard</p>
+                <p class="mt-1 mb-4 fw-bold">{{$category->category_name}}</p>
                 <div>
-                    <button class="btn btn-outline-light btn-bg-purple">
+                    <button class="btn btn-outline-light btn-bg-purple" type="button" onclick="">
                         Delete Category
                     </button>
-                    <a href="/" class="btn btn-outline-light btn-bg-purple">
+                    <a href="{{ url('categories/'.$category->id.'/edit')}}" class="btn btn-outline-light btn-bg-purple">
                         Update Category
                     </a>
                 </div> 
             </div>
-
-            <div class="col-3 card-box-item m-4 p-2 border rounded-3 text-center">
-                <div>
-                    <img class="img-fluid" src="https://www.wasdkeyboards.com/pub/media/catalog/product/cache/cee7a71fd82c474592eb38179a21d892/8/7/87-blue.png" alt="">
-                </div>
-                <p class="mt-1 mb-4 fw-bold">87 Key Keyboard</p>
-                <div>
-                    <button class="btn btn-outline-light btn-bg-purple">
-                        Delete Category
-                    </button>
-                    <a href="/" class="btn btn-outline-light btn-bg-purple">
-                        Update Category
-                    </a>
-                </div> 
-            </div>
-
-            <div class="col-3 card-box-item m-4 p-2 border rounded-3 text-center">
-                <div>
-                    <img class="img-fluid" src="https://www.wasdkeyboards.com/pub/media/catalog/product/cache/cee7a71fd82c474592eb38179a21d892/8/7/87-blue.png" alt="">
-                </div>
-                <p class="mt-1 mb-4 fw-bold">87 Key Keyboard</p>
-                <div>
-                    <button class="btn btn-outline-light btn-bg-purple">
-                        Delete Category
-                    </button>
-                    <a href="/" class="btn btn-outline-light btn-bg-purple">
-                        Update Category
-                    </a>
-                </div> 
-            </div>
-
-            <div class="col-3 card-box-item m-4 p-2 border rounded-3 text-center">
-                <div>
-                    <img class="img-fluid" src="https://www.wasdkeyboards.com/pub/media/catalog/product/cache/cee7a71fd82c474592eb38179a21d892/8/7/87-blue.png" alt="">
-                </div>
-                <p class="mt-1 mb-4 fw-bold">87 Key Keyboard</p>
-                <div>
-                    <button class="btn btn-outline-light btn-bg-purple">
-                        Delete Category
-                    </button>
-                    <a href="/" class="btn btn-outline-light btn-bg-purple">
-                        Update Category
-                    </a>
-                </div> 
-            </div>
-            
+            @endforeach
         </div>
     </div>
 @endsection

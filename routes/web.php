@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -16,9 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [HomeController::class,'index']);
+
 Route::get('/login',[AuthController::class,"login"]);
 Route::get('/register',[AuthController::class,"register"]);
 Route::post('/addUser',[AuthController::class,"addUser"]);
@@ -29,12 +29,7 @@ Route::get('/logout', [AuthController::class,"logout"]);
 
 Route::get('/home', [HomeController::class,'index']);
 
-Route::get('/categories/{name}', function () {
-    return view('view_keyboard');
-});
-
-Route::get('/categories/manage', function () {
-    return view('manage_categories');
-});
+Route::get('/categories/{name}',[CategoryController::class,"manage"]);
+Route::get('/categories/manage', [CategoryController::class,"index"]);
 
 //---------temporary routes end
