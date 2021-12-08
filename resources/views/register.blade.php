@@ -89,7 +89,12 @@
                             </tr>
                             <tr>
                                 <td></td>
-                                <td><button class="btn btn-primary" type="submit">Register</button></td>
+                                <td>
+                                    <button class="btn btn-primary" type="submit">Register</button>
+                                    @if (session('success'))
+                                        <p>{{session('success')}}</p>
+                                    @endif
+                                </td>
                             </tr>
                         </tbody>
                     </table>                  

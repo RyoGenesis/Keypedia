@@ -32,16 +32,19 @@ class AuthController extends Controller
         $validation = [
             "username"=>'required',
             "email_address"=>"required|email|unique:users",
-            "password"=>"required",
+            "password"=>"required|min:8",
             "confirm"=>"required|same:password",
-            "address"=>"required",
+            "address"=>"required|min:10",
             "gender"=>"required",
             "dob"=>"required"
         ];
         $temp = $request->validate($validation);
-    
-
-
+        
+        $user = ["role_id"=>2,"username"=>$request->username,
+        "email_address"=>$request->email_address,"password"=>$request->password,
+        "address"=>$request->address,"gender"=>$request->gender,"dob"=>$request->dob];
+        DB::table("users")->insert($user);
+        return redirect()->back()->with("success","Register Success!");
     }
 
     public function register(){
