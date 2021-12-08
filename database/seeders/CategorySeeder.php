@@ -15,7 +15,7 @@ class CategorySeeder extends Seeder
     public function run()
     {
         $categories = [
-            ["category_name"=>"87 Key Keyboard","image_path"=>"images/category/87-key-keyboard.png"],
+            ["category_name"=>"87 Key Keyboard","image_path"=>"images/category/87-key-keyboard.jpg"],
             ["category_name"=>"61 Key Keyboard","image_path"=>"images/category/61-key-keyboard.jpg"],
             ["category_name"=>"Cherry Profile","image_path"=>"images/category/cherry-key-keyboard.jpg"],
             ["category_name"=>"XDA Profile","image_path"=>"images/category/xda-key-keyboard.jpg"]
