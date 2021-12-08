@@ -18,7 +18,6 @@
                             <p class="mt-3 text-primary fw-bold">{{$category->category_name}}</p>
                             <div class="bg-white rounded-bottom flex-grow-1 d-flex align-items-center">
                                 <img class="img-fluid rounded-bottom" src="{{asset('storage/'.$category->image_path)}}" alt="">
-                                
                             </div>
                         </div> 
                     </a>

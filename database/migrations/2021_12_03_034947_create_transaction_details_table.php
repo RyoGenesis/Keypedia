@@ -14,7 +14,7 @@ class CreateTransactionDetailsTable extends Migration
     public function up()
     {
         Schema::create('transaction_details', function (Blueprint $table) {
-            $table->primary(['transaction_id','keyboard_id']);
+            $table->id();
             $table->foreignId('transaction_id');
             $table->foreignId('keyboard_id');
             $table->foreign('transaction_id')->

@@ -1,5 +1,5 @@
 @extends('sharedLayout.layout')
-@section('title-header','Keypedia - Categ Name')
+@section('title-header',"Keypedia - $category->category_name")
 
 @section('content')
     <div class="row px-5">
@@ -15,7 +15,9 @@
                     <div>
                         <img class="img-fluid" src="{{asset('storage/'.$keyboard->image_path)}}" alt="">
                     </div>
-                    <p class="mt-3 mb-0 text-primary fw-bolder">{{$keyboard->name}}</p>
+                    <a class="text-decoration-none" href="{{ url('keyboards/'.$keyboard->id)}}">
+                        <p class="mt-3 mb-0 text-primary fw-bolder">{{$keyboard->name}}</p>
+                    </a>
                     <p class="mb-4 text-white">US$ {{$keyboard->price}}</p>
                     @auth
                         @if(Auth::user()->role->role_name == "Manager")

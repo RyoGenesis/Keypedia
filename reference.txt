@@ -53,6 +53,7 @@ https://laracasts.com/discuss/channels/eloquent/how-to-define-compond-key-unique
 https://www.w3schools.com/php/func_date_date.asp
 https://getbootstrap.com/docs/5.0/utilities/borders/
 https://getbootstrap.com/docs/5.0/components/card/
+https://laravel.com/docs/8.x/middleware
 
 
 

@@ -3,7 +3,9 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KeyboardController;
 use App\Http\Controllers\MyCartController;
+use App\Http\Middleware\EnsureAddToCart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -28,9 +30,14 @@ Route::get('/logout', [AuthController::class,"logout"]);
 //----------temporary routes
 Route::post('/updateCart',[MyCartController::class,"updateCart"]);
 Route::get('/myCart',[MyCartController::class,'index']);
+Route::post('/addtocart', [MyCartController::class,'insert'])->middleware(EnsureAddToCart::class);
+
 Route::get('/home', [HomeController::class,'index']);
 
 Route::get('/categories/{id}',[CategoryController::class,"index"]);
 Route::get('/manage', [CategoryController::class,"manage"]);
+
+Route::get('/keyboards/{id}',[KeyboardController::class,"index"]);
+
 
 //---------temporary routes end

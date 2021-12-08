@@ -41,4 +41,27 @@ class MyCartController extends Controller
         }
         
     }
+
+    public function insert(Request $request){
+        $validation = [
+            "quantity"=>"numeric|min:0"
+        ];
+        $request->validate($validation);
+
+        $cartItem = CartItem::where("keyboard_id",$request->keyboard_id)->where("user_id",Auth::user()->id)->first();
+
+        if($cartItem == null){
+            $cartItem = new CartItem();
+            $cartItem->keyboard_id = $request->keyboard_id;
+            $cartItem->user_id = Auth::user()->id;
+            $cartItem->quantity = $request->quantity;
+            $cartItem->save();
+            return redirect()->back();
+            //temporary, later will add a modal for success message
+        } 
+            
+        $cartItem->quantity += $request->quantity;
+        $cartItem->save();
+        return redirect()->back();
+    }
 }

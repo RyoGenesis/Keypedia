@@ -1,5 +1,5 @@
 @extends('sharedLayout.layout')
-@section('title-header','Keypedia')
+@section('title-header','Keypedia - Login')
 
 @section('content')
     <div class=" card col-7 m-auto">
