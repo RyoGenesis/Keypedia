@@ -44,7 +44,7 @@ class MyCartController extends Controller
 
     public function insert(Request $request){
         $validation = [
-            "quantity"=>"numeric|min:0"
+            "quantity"=>"numeric|min:1"
         ];
         $request->validate($validation);
 
