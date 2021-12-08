@@ -35,7 +35,7 @@
                         @if(Auth::user()->role->role_name == "Manager")
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                MANAGER
+                                {{Auth::user()->username}}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Add Keyboard</a></li>
@@ -48,7 +48,7 @@
                         @if(Auth::user()->role->role_name == "Customer")
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                USER
+                            {{Auth::user()->username}}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">My Cart</a></li>
