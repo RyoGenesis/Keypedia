@@ -26,7 +26,7 @@ Route::post('/addUser',[AuthController::class,"addUser"]);
 Route::post('/doLogin',[AuthController::class,"doLogin"]);
 Route::get('/logout', [AuthController::class,"logout"]);
 //----------temporary routes
-
+Route::post('/updateCart',[MyCartController::class,"updateCart"]);
 Route::get('/myCart',[MyCartController::class,'index']);
 Route::get('/home', [HomeController::class,'index']);
 

@@ -51,7 +51,7 @@
                             {{Auth::user()->username}}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">My Cart</a></li>
+                                <li><a class="dropdown-item" href="/myCart">My Cart</a></li>
                                 <li><a class="dropdown-item" href="#">Transaction History</a></li>
                                 <li><a class="dropdown-item" href="#">Change Password</a></li>
                                 <li><a class="dropdown-item" href="/logout">Logout</a></li>
