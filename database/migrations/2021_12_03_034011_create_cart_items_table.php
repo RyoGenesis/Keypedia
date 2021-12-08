@@ -14,7 +14,8 @@ class CreateCartItemsTable extends Migration
     public function up()
     {
         Schema::create('cart_items', function (Blueprint $table) {
-            $table->primary(['keyboard_id','user_id']);
+            // $table->primary(['keyboard_id','user_id']);
+            $table->id();
             $table->foreignId('keyboard_id');
             $table->foreignId('user_id');
             $table->foreign('keyboard_id')->

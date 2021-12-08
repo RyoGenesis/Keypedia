@@ -21,7 +21,7 @@ class MyCartController extends Controller
         $validation = [
             "quantity"=>"numeric|min:0"
         ];
-        // echo "test";
+        echo $request->keyboard_id;
         $request->validate($validation);
         
         if($request->quantity == 0){
@@ -32,7 +32,9 @@ class MyCartController extends Controller
             // $cart->delete();
             return redirect()->back();
         }else{
-            $cart = CartItem::where("keyboard_id","=",$request->keyboard_id)->where("user_id","=",Auth::user()->id)->first();
+            echo Auth::user()->id;
+            $cart = CartItem::where("keyboard_id",$request->keyboard_id)->where("user_id",Auth::user()->id)->first();
+            
             $cart->quantity = $request->quantity;
             $cart->save();
             return redirect()->back();
