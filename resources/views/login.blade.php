@@ -2,7 +2,7 @@
 @section('title-header','Keypedia - Login')
 
 @section('content')
-    <div class=" card col-7 m-auto">
+    <div class=" card col-7 m-auto card-box-item">
         <div class="card-header">
             <p class="m-0">Login</p>
         </div>
@@ -41,7 +41,7 @@
                             
                             <tr>
                                 <td></td>
-                                <td><button class="btn btn-primary" type="submit">Login</button></td>
+                                <td><button class="btn btn-bg-purple btn-outline-light" type="submit">Login</button></td>
                             </tr>
                         </tbody>
                     </table>                  

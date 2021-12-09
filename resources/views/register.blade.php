@@ -3,7 +3,7 @@
 
 @section('content')
     
-    <div class=" card col-7 m-auto">
+    <div class=" card col-7 m-auto card-box-item">
         <div class="card-header">
             <p class="m-0">Register</p>
         </div>
@@ -90,7 +90,7 @@
                             <tr>
                                 <td></td>
                                 <td>
-                                    <button class="btn btn-primary" type="submit">Register</button>
+                                    <button class="btn btn-outline-light btn-bg-purple" type="submit">Register</button>
                                     @if (session('success'))
                                         <p>{{session('success')}}</p>
                                     @endif
