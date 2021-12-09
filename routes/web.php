@@ -28,6 +28,7 @@ Route::post('/addUser',[AuthController::class,"addUser"]);
 Route::post('/doLogin',[AuthController::class,"doLogin"]);
 Route::get('/logout', [AuthController::class,"logout"]);
 //----------temporary routes
+Route::post('/updateTransaction',[MyCartController::class,"addTransaction"]);
 Route::post('/updateCart',[MyCartController::class,"updateCart"]);
 Route::get('/myCart',[MyCartController::class,'index']);
 Route::post('/addtocart', [MyCartController::class,'insert'])->middleware(EnsureAddToCart::class);
