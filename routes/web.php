@@ -39,6 +39,7 @@ Route::get('/categories/{id}',[CategoryController::class,"index"]);
 Route::get('/manage', [CategoryController::class,"manage"]);
 
 Route::get('/keyboards/{id}',[KeyboardController::class,"index"]);
-
+Route::get('/add-keyboard',[KeyboardController::class,"addIndex"]);
+Route::post('/addKeyboard',[KeyboardController::class,"add"]);
 
 //---------temporary routes end

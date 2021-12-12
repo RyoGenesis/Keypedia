@@ -43,6 +43,7 @@ class MyCartController extends Controller
         }
         
     }
+    
     public function addTransaction(Request $request){
         $user = Auth::user();
 
@@ -62,6 +63,7 @@ class MyCartController extends Controller
         CartItem::where("user_id","=",$user->id)->delete();
         return redirect()->back();
     }
+
     public function insert(Request $request){
         $validation = [
             "quantity"=>"numeric|min:1"

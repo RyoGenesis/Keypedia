@@ -30,7 +30,7 @@ class AuthController extends Controller
     }
     public function addUser(Request $request){
         $validation = [
-            "username"=>'required',
+            "username"=>'required|min:5',
             "email_address"=>"required|email|unique:users",
             "password"=>"required|min:8",
             "confirm"=>"required|same:password",

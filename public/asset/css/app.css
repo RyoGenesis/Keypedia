@@ -10,3 +10,7 @@
 .btn-bg-purple:hover{
     background-color: #EAEAEA !important;
 }
+
+input[type=number]::-webkit-inner-spin-button {
+    opacity: 1
+}
