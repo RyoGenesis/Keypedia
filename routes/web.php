@@ -7,6 +7,7 @@ use App\Http\Controllers\KeyboardController;
 use App\Http\Controllers\MyCartController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Middleware\CheckAuthUser;
+use App\Http\Middleware\CheckCustomerRole;
 use App\Http\Middleware\EnsureAddToCart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -34,8 +35,8 @@ Route::post('/updateTransaction',[MyCartController::class,"addTransaction"]);
 Route::post('/updateCart',[MyCartController::class,"updateCart"]);
 Route::get('/myCart',[MyCartController::class,'index'])->middleware(EnsureAddToCart::class);
 Route::post('/addtocart', [MyCartController::class,'insert'])->middleware(EnsureAddToCart::class);
-Route::get('/myTransaction',[TransactionController::class,'getTransaction'])->middleware(EnsureAddToCart::class);
-Route::get('/viewTransaction/detail/{id}',[TransactionController::class,'getDetailTransaction'])->middleware(EnsureAddToCart::class);
+Route::get('/myTransaction',[TransactionController::class,'getTransaction'])->middleware(CheckCustomerRole::class);
+Route::get('/viewTransaction/detail/{id}',[TransactionController::class,'getDetailTransaction'])->middleware(CheckCustomerRole::class);
 Route::get('/home', [HomeController::class,'index']);
 
 Route::get('/categories/{id}',[CategoryController::class,"index"]);
