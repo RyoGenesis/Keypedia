@@ -22,10 +22,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class,'index']);
 
-Route::get('/login',[AuthController::class,"login"]);
-Route::get('/register',[AuthController::class,"register"]);
-Route::post('/addUser',[AuthController::class,"addUser"]);
-Route::post('/doLogin',[AuthController::class,"doLogin"]);
+Route::get('/login',[AuthController::class,"login"])->middleware('guest');
+Route::get('/register',[AuthController::class,"register"])->middleware('guest');
+Route::post('/addUser',[AuthController::class,"addUser"])->middleware('guest');
+Route::post('/doLogin',[AuthController::class,"doLogin"])->middleware('guest');
 Route::get('/logout', [AuthController::class,"logout"]);
 //----------temporary routes
 Route::post('/updateTransaction',[MyCartController::class,"addTransaction"]);

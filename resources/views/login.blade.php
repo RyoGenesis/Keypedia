@@ -18,7 +18,7 @@
                             <tr>
                                 <td class="col-5"><label for="email">E-mail Address</label></td>
                                 <td>
-                                    <input class="form-control" type="text" name="email_address" id="email" @error('email_address') is-invalid @enderror>
+                                    <input class="form-control" type="text" name="email_address" id="email" value={{Cookie::get('email')!= null? Cookie::get("email"):""}} @error('email_address') is-invalid @enderror>
                                     @error('email_address')
                                         <p>{{$message}}</p>
                                     @enderror
@@ -38,7 +38,10 @@
                                     @endif
                                 </td>
                             </tr>                
-                            
+                            <tr>
+                                <td></td>
+                                <td><input type="checkbox" name="remember" id="remeber">Remember Me</td>
+                            </tr>
                             <tr>
                                 <td></td>
                                 <td><button class="btn btn-bg-purple btn-outline-light" type="submit">Login</button></td>

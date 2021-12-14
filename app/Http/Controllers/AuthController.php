@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
@@ -19,13 +20,15 @@ class AuthController extends Controller
             "email_address"=>"required",
             "password"=>"required"
         ];
-        $temp = $request->validate($validation);
-        $user = User::where('email_address','=',$request["email_address"])->where('password','=',$request['password'])->first();
-        if($user == null)return redirect()->back()->withErrors("Invalid Account!");
+        $credential = $request->validate($validation);
+        // $user = User::where('email_address','=',$request["email_address"])->where('password','=',$request['password'])->first();
+        if($request->remember){
+            Cookie::queue('email',$credential['email_address'],10080);
+        }
+        if(Auth::attempt($credential,true)) return redirect("/home");
         else{
-            Auth::login($user,true);
-            
-            return redirect("/home");
+            return redirect()->back()->withErrors("Invalid Account!");
+           
         }
     }
     public function addUser(Request $request){
