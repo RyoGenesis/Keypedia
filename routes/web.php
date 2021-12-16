@@ -27,8 +27,8 @@ Route::get('/', [HomeController::class,'index']);
 
 Route::get('/login',[AuthController::class,"login"])->middleware('guest');
 Route::get('/register',[AuthController::class,"register"])->middleware('guest');
-Route::post('/addUser',[AuthController::class,"addUser"])->middleware('guest');
-Route::post('/doLogin',[AuthController::class,"doLogin"])->middleware('guest');
+Route::post('/addUser',[AuthController::class,"addUser"]);
+Route::post('/doLogin',[AuthController::class,"doLogin"]);
 Route::get('/logout', [AuthController::class,"logout"])->middleware(EnsureAddToCart::class);
 Route::get('/changePassword',[AuthController::class,"viewChangePassword"])->middleware(EnsureAddToCart::class);
 Route::post('/changePassword',[AuthController::class,"changePassword"]);
