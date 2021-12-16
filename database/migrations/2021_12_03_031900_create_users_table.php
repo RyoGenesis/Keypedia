@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('gender');
             $table->date('dob');
             $table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

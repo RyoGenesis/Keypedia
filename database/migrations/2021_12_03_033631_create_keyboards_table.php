@@ -22,6 +22,7 @@ class CreateKeyboardsTable extends Migration
             $table->integer('price');
             $table->string('description');
             $table->string('image_path');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
