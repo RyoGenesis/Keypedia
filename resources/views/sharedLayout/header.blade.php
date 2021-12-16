@@ -40,7 +40,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="/add-keyboard">Add Keyboard</a></li>
                                 <li><a class="dropdown-item" href="/manage">Manage Categories</a></li>
-                                <li><a class="dropdown-item" href="#">Change Password</a></li>
+                                <li><a class="dropdown-item" href="/changePassword">Change Password</a></li>
                                 <li><a class="dropdown-item" href="/logout">Logout</a></li>
                             </ul>
                         </li>

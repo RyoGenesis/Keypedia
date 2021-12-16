@@ -30,12 +30,16 @@ Route::get('/register',[AuthController::class,"register"])->middleware('guest');
 Route::post('/addUser',[AuthController::class,"addUser"])->middleware('guest');
 Route::post('/doLogin',[AuthController::class,"doLogin"])->middleware('guest');
 Route::get('/logout', [AuthController::class,"logout"])->middleware(EnsureAddToCart::class);
+Route::get('/changePassword',[AuthController::class,"viewChangePassword"])->middleware(EnsureAddToCart::class);
+Route::post('/changePassword',[AuthController::class,"changePassword"]);
+
 //----------temporary routes
 Route::post('/updateTransaction',[MyCartController::class,"addTransaction"]);
 Route::post('/updateCart',[MyCartController::class,"updateCart"]);
 Route::get('/myCart',[MyCartController::class,'index'])->middleware(EnsureAddToCart::class);
 Route::post('/addtocart', [MyCartController::class,'insert'])->middleware(EnsureAddToCart::class);
 Route::get('/myTransaction',[TransactionController::class,'getTransaction'])->middleware(CheckCustomerRole::class);
+
 Route::get('/viewTransaction/detail/{id}',[TransactionController::class,'getDetailTransaction'])->middleware(CheckCustomerRole::class);
 Route::get('/home', [HomeController::class,'index']);
 

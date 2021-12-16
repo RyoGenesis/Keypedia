@@ -1,5 +1,5 @@
 @extends('sharedLayout.layout')
-@section('title-header','Keypedia - My Cart')
+@section('title-header','Keypedia - Transaction History')
 
 @section('content')
     <div class="col-7 m-auto">
