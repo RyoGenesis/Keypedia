@@ -33,7 +33,6 @@ Route::get('/logout', [AuthController::class,"logout"])->middleware(EnsureAddToC
 Route::get('/changePassword',[AuthController::class,"viewChangePassword"])->middleware(EnsureAddToCart::class);
 Route::post('/changePassword',[AuthController::class,"changePassword"]);
 
-//----------temporary routes
 Route::post('/updateTransaction',[MyCartController::class,"addTransaction"]);
 Route::post('/updateCart',[MyCartController::class,"updateCart"]);
 Route::get('/myCart',[MyCartController::class,'index'])->middleware(EnsureAddToCart::class);
@@ -49,5 +48,5 @@ Route::get('/manage', [CategoryController::class,"manage"]);
 Route::get('/keyboards/{id}',[KeyboardController::class,"index"]);
 Route::get('/add-keyboard',[KeyboardController::class,"addIndex"]);
 Route::post('/addKeyboard',[KeyboardController::class,"add"]);
-
-//---------temporary routes end
+Route::get('/update-keyboard/{id}',[KeyboardController::class,"updateIndex"]);
+Route::post('/updateKeyboard',[KeyboardController::class,"update"]);

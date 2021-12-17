@@ -25,7 +25,7 @@
                                 <button class="btn btn-outline-light btn-bg-purple" type="button" onclick="">
                                     Delete Keyboard
                                 </button>
-                                <a href="/" class="btn btn-outline-light btn-bg-purple">
+                                <a href="{{ url('update-keyboard/'.$keyboard->id)}}" class="btn btn-outline-light btn-bg-purple">
                                     Update Keyboard
                                 </a>
                             </div>
