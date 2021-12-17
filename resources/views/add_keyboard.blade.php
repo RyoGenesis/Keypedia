@@ -8,7 +8,7 @@
         </div>
         <div class="card-body">
             <div class="w-75 m-auto">
-                <form action="/addKeyboard" method="POST">
+                <form action="/addKeyboard" method="POST" enctype="multipart/form-data">
                     @csrf
                     <table class="table table-borderless">
                         <thead>

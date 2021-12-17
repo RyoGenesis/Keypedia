@@ -68,7 +68,7 @@ class AuthController extends Controller
         $request->validate($validate);
         print_r(Hash::make($request->password));
         
-        print_r("<br>".(!Hash::check($request->password,Auth::user()->password)));
+        
         if(!Hash::check($request->password,Auth::user()->password)){
             return redirect()->back()->withErrors("Old Password is wrong!");
         }
