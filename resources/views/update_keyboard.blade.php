@@ -8,10 +8,10 @@
         </div>
         <div class="card-body">
             <div class=" m-auto row">
-                <div class="col-lg-3 col-md-12 col-sm-12">
+                <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
                     <img class="img-fluid" src="{{asset('storage/'.$keyboard->image_path)}}" alt="">
                 </div>
-                <div class="col-lg-9 col-md-12 col-sm-12 table-responsive">
+                <div class="col-lg-8 col-md-12 col-sm-12 table-responsive">
                     <form action="/updateKeyboard" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div><input type="hidden" name="id" value="{{$keyboard->id}}" ></div>

@@ -44,6 +44,8 @@ Route::get('/home', [HomeController::class,'index']);
 
 Route::get('/categories/{id}',[CategoryController::class,"index"]);
 Route::get('/manage', [CategoryController::class,"manage"]);
+Route::get('/categories/{id}/edit',[CategoryController::class,"updateIndex"]);
+Route::post('/updateCategory',[CategoryController::class,"update"]);
 
 Route::get('/keyboards/{id}',[KeyboardController::class,"index"]);
 Route::get('/add-keyboard',[KeyboardController::class,"addIndex"]);

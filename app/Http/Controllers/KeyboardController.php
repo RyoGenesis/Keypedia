@@ -15,7 +15,7 @@ class KeyboardController extends Controller
     public function index($id){
         $categ = Category::all();
 
-        $keyboard = Keyboard::where('id',$id)->first();
+        $keyboard = Keyboard::find($id);
 
         return view('keyboard_details')->with('categories',$categ)->with('keyboard', $keyboard);
     }
@@ -57,11 +57,12 @@ class KeyboardController extends Controller
     public function updateIndex($id){
         $categ = Category::all();
 
-        $keyboard = Keyboard::where('id',$id)->first();
+        $keyboard = Keyboard::find($id);
 
         return view('update_keyboard')->with('categories',$categ)->with('keyboard', $keyboard);
     }
 
+    //bug unresolved
     public function update(Request $request){
         $validation = [
             "category"=>'required',
