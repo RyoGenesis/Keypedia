@@ -10,6 +10,7 @@ class Keyboard extends Model
 {
     use HasFactory,SoftDeletes;
     protected $table = "keyboards";
+    protected $dates = ['deleted_at'];
     public function category(){
         return $this->belongsTo(Category::class);
     }

@@ -10,6 +10,7 @@ class Category extends Model
 {
     use HasFactory,SoftDeletes;
     protected $table="categories";
+    protected $dates = ['deleted_at'];
     public function keyboard(){
         return $this->hasMany(Keyboard::class);
     }
