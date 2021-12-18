@@ -39,7 +39,7 @@ class KeyboardController extends Controller
         $imgfile = $request->file('image');
         $imageName = time().'_'.$imgfile->getClientOriginalName();
 
-        Storage::putFileAs('public/images', $imgfile, $imageName);
+        Storage::putFileAs('public/images/keyboard/', $imgfile, $imageName);
         $imagePath = 'images/keyboard/'.$imageName;
         //pathnya belum selesai kalau mau disubcategory lg
         

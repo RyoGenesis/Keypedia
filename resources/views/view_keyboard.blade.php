@@ -13,6 +13,7 @@
             @forelse ($keyboards as $keyboard)
                 <div class="col-3 card-box-item m-4 p-1 border rounded-3 text-center">
                     <div>
+                        
                         <img class="img-fluid" src="{{asset('storage/'.$keyboard->image_path)}}" alt="">
                     </div>
                     <a class="text-decoration-none" href="{{ url('keyboards/'.$keyboard->id)}}">
