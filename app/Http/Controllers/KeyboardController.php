@@ -93,4 +93,13 @@ class KeyboardController extends Controller
         $keyboard->save();
         return redirect()->back()->with("success","Keyboard update Success!");
     }
+
+    public function delete(Request $request){
+        $keyboard = Keyboard::find($request->id);
+        if($keyboard == null) return redirect()->back(); //for safety
+
+        Storage::delete('public/'.$keyboard->image_path);
+        $keyboard->delete();
+        return redirect()->back();
+    }
 }

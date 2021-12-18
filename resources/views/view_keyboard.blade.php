@@ -25,7 +25,7 @@
                         @auth
                             @if(Auth::user()->role->role_name == "Manager")
                                 <div>
-                                    <button class="btn btn-outline-light btn-bg-purple" type="button" onclick="">
+                                    <button class="btn btn-outline-light btn-bg-purple conf-delete" data-id="{{$keyboard->id}}" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" type="button">
                                         Delete Keyboard
                                     </button>
                                     <a href="{{ url('update-keyboard/'.$keyboard->id)}}" class="btn btn-outline-light btn-bg-purple">
@@ -41,4 +41,32 @@
             @endforelse
         </div>
     </div>
+
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteModalLabel">Confirm Delete Keyboard</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+              <p>Are you sure to delete this keyboard?</p>
+            </div>
+            <div class="modal-footer justify-content-center">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <form action="/deleteKeyboard" method="POST">
+                @csrf
+                <input type="hidden" id="id-keyboard" name="id">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script>
+        $(document).on('click','.conf-delete',function(){
+            let id = $(this).attr('data-id');
+            $('#id-keyboard').val(id);
+        });
+    </script>
 @endsection
