@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Keyboard;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
 class CategoryController extends Controller
@@ -23,6 +24,29 @@ class CategoryController extends Controller
     {
         $categ = Category::all();
         return view('manage_categories')->with('categories', $categ);
+    }
+    public function viewAddCategory(){
+        $categ = Category::all();
+        return view('add_category')->with('categories', $categ);
+    }
+
+    public function addCategory(Request $request){
+        $validate=[
+            "category_name"=>"required|unique:categories|min:5",
+            "image"=>"required|file|image"
+        ];
+        $request->validate($validate);
+
+        $imgfile = $request->file('image');
+        $imageName = time().'_'.$imgfile->getClientOriginalName();
+        Storage::putFileAs('public/images/category/',$imgfile,$imageName);
+        $imagePath = 'images/category/'.$imageName;
+        
+        $category = new Category();
+        $category->category_name = $request->category_name;
+        $category->image_path = $imagePath;
+        $category->save();
+        return redirect()->back()->with("success","Add Category Success!");
     }
 
     public function updateIndex($id){
