@@ -16,10 +16,12 @@
                         
                         <div style="width:fit-content;"><img  class="img-fluid" src="{{asset('storage/'.$keyboard->image_path)}}" alt=""></div>
                     </div>
-                    <a class="text-decoration-none" href="{{ url('keyboards/'.$keyboard->id)}}">
-                        <p class="mt-3 mb-0 text-primary fw-bolder">{{$keyboard->name}}</p>
-                    </a>
-                    <p class="mb-4 text-white">US$ {{$keyboard->price}}</p>
+                    <div style="height: 100px;">
+                        <a class="text-decoration-none" href="{{ url('keyboards/'.$keyboard->id)}}">
+                            <p class="mt-3 mb-0 text-primary fw-bolder">{{$keyboard->name}}</p>
+                        </a>
+                        <p class="mb-4 text-white">US$ {{$keyboard->price}}</p>
+                    </div>
                     @auth
                         @if(Auth::user()->role->role_name == "Manager")
                             <div>
