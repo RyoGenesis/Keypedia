@@ -10,11 +10,13 @@
         <div class="col-12 d-flex justify-content-center px-5 flex-wrap">
             @foreach ($categories as $category)
             <div class="col-3 card-box-item m-4 p-2 border rounded-3 text-center">
-                <div>
-                    <img class="img-fluid" src="{{asset('storage/'.$category->image_path)}}" alt="">
+                <div style="background-color: white; height: 300px; display:flex; flex-wrap: wrap; align-items: center; justify-content: center;">
+                        
+                    <div style="width:fit-content;"><img  class="img-fluid" src="{{asset('storage/'.$category->image_path)}}" alt=""></div>
                 </div>
+
                 <p class="mt-1 mb-4 fw-bold">{{$category->category_name}}</p>
-                <div>
+                <div >
                     <button class="btn btn-outline-light btn-bg-purple" type="button" onclick="">
                         Delete Category
                     </button>
