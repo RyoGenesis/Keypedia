@@ -47,7 +47,7 @@ class AuthController extends Controller
         $temp = $request->validate($validation);
         
         $user = ["role_id"=>2,"username"=>$request->username,
-        "email_address"=>$request->email_address,"password"=>$request->password,
+        "email_address"=>$request->email_address,"password"=>Hash::make($request->password),
         "address"=>$request->address,"gender"=>$request->gender,"dob"=>$request->dob];
         DB::table("users")->insert($user);
         return redirect()->back()->with("success","Register Success!");
