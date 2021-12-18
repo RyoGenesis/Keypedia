@@ -75,11 +75,10 @@ class CategoryController extends Controller
         if($imgfile != null){
             $imageName = time().'_'.$imgfile->getClientOriginalName();
             //putFileAs ga nyimpen gambarnya. BUG ???
-            //Storage::putFileAs('public/images/category', $imgfile, $imageName);
+            Storage::putFileAs('public/images/category', $imgfile, $imageName);
             $imagePath = 'images/category/'.$imageName;
-            //Storage::delete('public/images'.$category->image_path);
+            Storage::delete('public/'.$category->image_path);
             $category->image_path = $imagePath;
-            //dd($category->image_path);
         }
        
         $category->category_name = $request->category_name;

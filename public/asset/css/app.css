@@ -14,3 +14,32 @@
 input[type=number]::-webkit-inner-spin-button {
     opacity: 1
 }
+
+.truncated-text-3{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.image-box-display{
+    background-color: white; 
+    height: 300px; 
+    display:flex; 
+    flex-wrap: wrap; 
+    align-items: center; 
+    justify-self: center;
+}
+
+@media screen and (max-width: 576px) {
+    .image-box-display{
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 577px) {
+    .image-box-display{
+        height: 200px;
+    }
+}

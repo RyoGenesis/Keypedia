@@ -41,7 +41,6 @@ class KeyboardController extends Controller
 
         Storage::putFileAs('public/images/keyboard/', $imgfile, $imageName);
         $imagePath = 'images/keyboard/'.$imageName;
-        //pathnya belum selesai kalau mau disubcategory lg
         
         $keyboard = new Keyboard();
         $keyboard->category_id = $request->category;
@@ -50,7 +49,7 @@ class KeyboardController extends Controller
         $keyboard->description = $request->description;
         $keyboard->image_path = $imagePath;
         $keyboard->save();
-        return redirect()->back()->with("success","Register Success!");
+        return redirect()->back()->with("success","Adding New Keyboard Success!");
         //belum di test, might change later
     }
 
@@ -83,11 +82,10 @@ class KeyboardController extends Controller
         if($imgfile != null){
             $imageName = time().'_'.$imgfile->getClientOriginalName();
             //putFileAs ga nyimpen gambarnya. BUG ???
-            //Storage::putFileAs('public/images/keyboard', $imgfile, $imageName);
+            Storage::putFileAs('public/images/keyboard/', $imgfile, $imageName);
             $imagePath = 'images/keyboard/'.$imageName;
-            //Storage::delete('public/images'.$keyboard->image_path);
+            Storage::delete('public/'.$keyboard->image_path);
             $keyboard->image_path = $imagePath;
-            //dd($keyboard->image_path);
         }
        
         $keyboard->category_id = $request->category;
@@ -95,6 +93,6 @@ class KeyboardController extends Controller
         $keyboard->price = $request->price;
         $keyboard->description = $request->description;
         $keyboard->save();
-        return redirect()->back()->with("success","Update Success!");
+        return redirect()->back()->with("success","Keyboard update Success!");
     }
 }
