@@ -50,7 +50,7 @@ class KeyboardController extends Controller
         $keyboard->image_path = $imagePath;
         $keyboard->save();
         return redirect()->back()->with("success","Adding New Keyboard Success!");
-        //belum di test, might change later
+        //might change later
     }
 
     public function updateIndex($id){
@@ -61,7 +61,6 @@ class KeyboardController extends Controller
         return view('update_keyboard')->with('categories',$categ)->with('keyboard', $keyboard);
     }
 
-    //bug unresolved
     public function update(Request $request){
         $validation = [
             "category"=>'required',
@@ -81,7 +80,6 @@ class KeyboardController extends Controller
 
         if($imgfile != null){
             $imageName = time().'_'.$imgfile->getClientOriginalName();
-            //putFileAs ga nyimpen gambarnya. BUG ???
             Storage::putFileAs('public/images/keyboard/', $imgfile, $imageName);
             $imagePath = 'images/keyboard/'.$imageName;
             Storage::delete('public/'.$keyboard->image_path);

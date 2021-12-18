@@ -57,7 +57,6 @@ class CategoryController extends Controller
         return view('update_category')->with('categories',$categ)->with('category', $category);
     }
 
-    //bug unresolved
     public function update(Request $request){
         $validation = [
            "category_name"=>['required','min:5',Rule::unique('categories')->ignore($request->id)],
@@ -74,7 +73,6 @@ class CategoryController extends Controller
 
         if($imgfile != null){
             $imageName = time().'_'.$imgfile->getClientOriginalName();
-            //putFileAs ga nyimpen gambarnya. BUG ???
             Storage::putFileAs('public/images/category', $imgfile, $imageName);
             $imagePath = 'images/category/'.$imageName;
             Storage::delete('public/'.$category->image_path);
@@ -84,5 +82,14 @@ class CategoryController extends Controller
         $category->category_name = $request->category_name;
         $category->save();
         return redirect()->back()->with("success","Category update Success!");
+    }
+
+    public function delete(Request $request){
+        $category = Category::find($request->id);
+        if($category == null) return redirect()->back(); //for safety
+
+        Storage::delete('public/'.$category->image_path);
+        $category->delete();
+        return redirect()->back();
     }
 }

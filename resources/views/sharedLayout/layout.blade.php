@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset('/asset/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('/asset/css/app.css') }}">
     <title>@yield('title-header')</title>
+    <script src="/asset/js/jquery-3.6.0.min.js"></script>
 </head>
 <body class="d-flex flex-column min-vh-100">
     @include('sharedLayout.header')
