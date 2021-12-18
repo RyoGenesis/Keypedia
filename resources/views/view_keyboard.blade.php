@@ -12,9 +12,9 @@
         <div class="col-12 d-flex justify-content-center px-5 flex-wrap">
             @forelse ($keyboards as $keyboard)
                 <div class="col-3 card-box-item m-4 p-1 border rounded-3 text-center">
-                    <div>
+                    <div style="background-color: white; height: 300px; display:flex; flex-wrap: wrap; align-items: center; justify-content: center;">
                         
-                        <img class="img-fluid" src="{{asset('storage/'.$keyboard->image_path)}}" alt="">
+                        <div style="width:fit-content;"><img  class="img-fluid" src="{{asset('storage/'.$keyboard->image_path)}}" alt=""></div>
                     </div>
                     <a class="text-decoration-none" href="{{ url('keyboards/'.$keyboard->id)}}">
                         <p class="mt-3 mb-0 text-primary fw-bolder">{{$keyboard->name}}</p>
