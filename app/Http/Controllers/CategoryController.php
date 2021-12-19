@@ -88,7 +88,7 @@ class CategoryController extends Controller
         $category = Category::find($request->id);
         if($category == null) return redirect()->back(); //for safety
 
-        Storage::delete('public/'.$category->image_path);
+        // Storage::delete('public/'.$category->image_path);
         $category->delete();
         return redirect()->back();
     }
