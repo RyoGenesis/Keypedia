@@ -10,7 +10,7 @@
             
             @foreach ($transaction as $trans)
                 <div class="w-50 m-auto bg-light text-center rounded-3">
-                    <a href="/viewTransaction/detail/{{$trans->id}}">{{$trans->transaction_date}}</a>
+                    <a href="/viewTransaction/detail/{{$trans->id}}">Transaction at {{$trans->transaction_date}}</a>
                 </div>
                 <div class="m-3"> </div>
                 

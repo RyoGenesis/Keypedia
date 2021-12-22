@@ -45,7 +45,6 @@ https://www.tokopedia.com/keychron/q1-k2-oem-dye-sub-pbt-keycap-set-wheat-grey?s
 
 
 Technical References:
-https://stackoverflow.com/questions/25671073/footer-below-content-but-not-floating-mid-air-if-not-enough-content
 https://getbootstrap.com/docs/4.1/utilities/flex/
 https://getbootstrap.com/docs/5.0/components/navbar/
 https://getbootstrap.com/docs/4.0/utilities/colors/
