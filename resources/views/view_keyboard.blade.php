@@ -7,11 +7,12 @@
         <h2>{{$category->category_name}}</h2>
     </div>
     {{--input field search here--}}
-    <form action="" method="post">
+    <form action="/search" method="post">
         @csrf
         <div class="m-2 form-group row">
             <div class="col-3">
-                <input class="form-control" type="search" name="" id="" placeholder="Search...">
+                <input class="form-control" type="search" name="search_text" id="search_text" placeholder="Search...">
+                <input type="hidden" name="id" value="{{$category->id}}">
             </div>
             <div class="col-1">
                 <select class="form-select" style="width:100px" name="category" id="category">

@@ -56,3 +56,4 @@ Route::post('/addKeyboard',[KeyboardController::class,"add"]);
 Route::get('/update-keyboard/{id}',[KeyboardController::class,"updateIndex"]);
 Route::post('/updateKeyboard',[KeyboardController::class,"update"]);
 Route::post('/deleteKeyboard',[KeyboardController::class,"delete"]);
+Route::post('/search',[KeyboardController::class,"search"]);

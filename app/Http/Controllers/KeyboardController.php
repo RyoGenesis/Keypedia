@@ -19,7 +19,17 @@ class KeyboardController extends Controller
 
         return view('keyboard_details')->with('categories',$categ)->with('keyboard', $keyboard);
     }
+    public function search(Request $request){
+        $categ = Category::all();
+        $keyboard = Keyboard::where('name',"LIKE","%".$request->search_text."%")->orderBy('name','asc')->simplePaginate(8);
+        // print_r($request);
+        $category = Category::find($request->id);
 
+        if($request->category == "name")$keyboard = Keyboard::where('name',"LIKE","%".$request->search_text."%")->orderBy('name','asc')->simplePaginate(8);
+        else if($request->category == "price") $keyboard = Keyboard::where('name',"LIKE","%".$request->search_text."%")->orderBy('price','asc')->simplePaginate(8);
+        return view('view_keyboard')->with('categories',$categ)->with('keyboards', $keyboard)->with('category',$category);
+        
+    }
     public function addIndex(){
         $categ = Category::all();
 
