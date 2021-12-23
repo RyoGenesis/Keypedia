@@ -16,7 +16,6 @@ class TransactionController extends Controller
         if(Auth::check()){
             $categ = Category::all();
             $user = Auth::user();
-            $cart = CartItem::where("user_id","=",$user->id)->get();
             $transaction = Transaction::where("user_id","=",$user->id)->get();
             return view('viewTransaction')->with('categories',$categ)->with('transaction',$transaction);
         }else{

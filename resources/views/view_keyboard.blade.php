@@ -7,25 +7,34 @@
         <h2>{{$category->category_name}}</h2>
     </div>
     {{--input field search here--}}
-    <form action="/search" method="post">
-        @csrf
+    <form action="{{url('/categories/'.$category->id.'/search')}}" method="get">
         <div class="m-2 form-group row">
             <div class="col-3">
-                <input class="form-control" type="search" name="search_text" id="search_text" placeholder="Search...">
-                <input type="hidden" name="id" value="{{$category->id}}">
+                <input class="form-control" type="search" name="input" id="search_text" placeholder="Search...">
             </div>
-            <div class="col-1">
-                <select class="form-select" style="width:100px" name="category" id="category">
+            <div class="col-2">
+                <select class="form-select" style="" name="category" id="category">
                     <option value="" disabled>Choose a category</option>
                     <option value="name" selected>Name</option>
-                    <option value="price">Price</option>
+                    <option value="price">Price (Exact)</option>
+                    <option value="price less">Price (Less Than)</option>
+                    <option value="price more">Price (More Than)</option>
                 </select>
             </div>
             <div class="col-1">
                 <button class="btn btn-outline-dark" type="submit">Search</button>
             </div>
+            @error('category')
+                <p class="text-danger text-start">{{$message}}</p>
+            @enderror
+            @error('input')
+                <p class="text-danger text-start">{{$message}}</p>
+            @enderror
         </div>
     </form>
+    @if (!empty($success))
+        <p class="fw-bold">{{$success}}</p>
+    @endif
     {{--input field search here end--}}
     <div class="col-12 px-lg-5 row row-cols-lg-3 row-cols-sm-2 row-cols-md-2 mx-auto justify-content-center">
         @forelse ($keyboards as $keyboard)
@@ -58,6 +67,9 @@
         <p>Belum ada keyboard untuk kategori ini...</p>
         @endforelse
     </div>
+    <div>
+        {{$keyboards->withQueryString()->links()}}
+    </div>	
 </div>
 
 <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -72,7 +84,7 @@
             </div>
             <div class="modal-footer justify-content-center">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <form action="/deleteKeyboard" method="POST">
+                <form action="{{url('/deleteKeyboard')}}" method="POST">
                     @csrf
                     <input type="hidden" id="id-keyboard" name="id">
                     <button type="submit" class="btn btn-danger">Delete</button>

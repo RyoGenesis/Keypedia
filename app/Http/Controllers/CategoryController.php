@@ -16,7 +16,7 @@ class CategoryController extends Controller
 
         $category = Category::find($id);
         $keyboards = Keyboard::where('category_id',$category->id)->simplePaginate(8);
-
+        abort_unless($keyboards->count(), 204);
         return view('view_keyboard')->with('categories',$categ)->with('keyboards', $keyboards)->with('category',$category);
     }
 

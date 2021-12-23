@@ -55,6 +55,7 @@ https://getbootstrap.com/docs/5.0/components/card/
 https://laravel.com/docs/8.x/middleware
 https://stackoverflow.com/questions/60880366/laravel-bootstrap-delete-confirmation-using-modal
 https://getbootstrap.com/docs/5.0/components/modal/
+https://github.com/laravel/ideas/issues/273
 
 
 

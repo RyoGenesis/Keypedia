@@ -22,7 +22,7 @@
                                 <?php $total+=$detail->keyboard->price*$detail->quantity?>
                             </div>
                             <div>
-                                Quantitiy: {{$detail->quantity}}
+                                Quantity: {{$detail->quantity}}
                             </div>
                         </div>
                     </div>

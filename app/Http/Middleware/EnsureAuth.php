@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class EnsureAddToCart
+class EnsureAuth
 {
     /**
      * Handle an incoming request.

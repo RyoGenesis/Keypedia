@@ -19,17 +19,54 @@ class KeyboardController extends Controller
 
         return view('keyboard_details')->with('categories',$categ)->with('keyboard', $keyboard);
     }
+
     public function search(Request $request){
-        $categ = Category::all();
-        $keyboard = Keyboard::where('name',"LIKE","%".$request->search_text."%")->orderBy('name','asc')->simplePaginate(8);
-        // print_r($request);
+        $validation = [
+            "category"=>'required|string|in:name,price,price less,price more',
+        ];
+
+        $request->validate($validation);
         $category = Category::find($request->id);
 
-        if($request->category == "name")$keyboard = Keyboard::where('name',"LIKE","%".$request->search_text."%")->orderBy('name','asc')->simplePaginate(8);
-        else if($request->category == "price") $keyboard = Keyboard::where('name',"LIKE","%".$request->search_text."%")->orderBy('price','asc')->simplePaginate(8);
-        return view('view_keyboard')->with('categories',$categ)->with('keyboards', $keyboard)->with('category',$category);
+        $categ = Category::all();
+
+        if($request->category == "name") $keyboard = $this->searchByName($request,$category->id);
+        else $keyboard = $this->searchByPrice($request,$category->id);
+
+        return view('view_keyboard')
+            ->with('categories',$categ)
+            ->with('keyboards', $keyboard)
+            ->with('category',$category)
+            ->with("success","Search result for (".$request->category.") : ".$request->input);
         
     }
+
+    private function searchByName(Request $request,$id){
+        $keyboard = Keyboard::where('category_id',$id)->where('name',"LIKE","%".$request->input."%")->orderBy('name','asc')->simplePaginate(8);
+        return $keyboard;
+    }
+
+    private function searchByPrice(Request $request,$id){
+        $validation = [
+            "input"=>'required|integer|min:0',
+        ];
+
+        $request->validate($validation);
+        switch($request->category){
+            case 'price less':
+                $keyboard = Keyboard::where('category_id',$id)->where('price','<=',$request->input)->orderBy('name','asc')->simplePaginate(8);
+                break;
+            case 'price more':
+                $keyboard = Keyboard::where('category_id',$id)->where('price','>=',$request->input)->orderBy('name','asc')->simplePaginate(8);
+                break;
+            default:
+                $keyboard = Keyboard::where('category_id',$id)->where('price',$request->input)->orderBy('name','asc')->simplePaginate(8);
+                break;
+        }
+        
+        return $keyboard;
+    }
+    
     public function addIndex(){
         $categ = Category::all();
 
@@ -108,7 +145,6 @@ class KeyboardController extends Controller
         $keyboard = Keyboard::find($request->id);
         if($keyboard == null) return redirect()->back(); //for safety
 
-        // Storage::delete('public/'.$keyboard->image_path);
         $keyboard->delete();
         return redirect()->back();
     }
