@@ -109,9 +109,10 @@ class KeyboardController extends Controller
     }
 
     public function update(Request $request){
+        print_r($request->id);
         $validation = [
             "category"=>'required',
-            "name"=>['required','min:5',Rule::unique('keyboards')->ignore($request->id)],
+            "name"=>['required','min:5','unique:keyboards,id,'. $request->id],
             "price"=>"integer|numeric|min:1",
             "description"=>"required|min:20",
             "image"=>"nullable|image"

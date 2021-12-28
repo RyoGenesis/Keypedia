@@ -8,6 +8,7 @@ use App\Http\Controllers\MyCartController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Middleware\CheckCustomerRole;
 use App\Http\Middleware\EnsureAuth;
+use App\Http\Middleware\EnsureManager;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -43,16 +44,16 @@ Route::get('/home', [HomeController::class,'index']);
 
 Route::get('/categories/{id}',[CategoryController::class,"index"])->name('keyboards_by_category');
 Route::get('/manage', [CategoryController::class,"manage"]);
-Route::get('/categories/{id}/edit',[CategoryController::class,"updateIndex"]);
+Route::get('/categories/{id}/edit',[CategoryController::class,"updateIndex"])->middleware(EnsureManager::class);
 Route::post('/updateCategory',[CategoryController::class,"update"]);
-Route::get('/add-category',[CategoryController::class,"viewAddCategory"]);
+Route::get('/add-category',[CategoryController::class,"viewAddCategory"])->middleware(EnsureManager::class);
 Route::post('/addCategory',[CategoryController::class,"addCategory"]);
 Route::post('/deleteCategory',[CategoryController::class,"delete"]);
 
 Route::get('/keyboards/{id}',[KeyboardController::class,"index"]);
-Route::get('/add-keyboard',[KeyboardController::class,"addIndex"]);
+Route::get('/add-keyboard',[KeyboardController::class,"addIndex"])->middleware(EnsureManager::class);
 Route::post('/addKeyboard',[KeyboardController::class,"add"]);
-Route::get('/update-keyboard/{id}',[KeyboardController::class,"updateIndex"]);
+Route::get('/update-keyboard/{id}',[KeyboardController::class,"updateIndex"])->middleware(EnsureManager::class);
 Route::post('/updateKeyboard',[KeyboardController::class,"update"]);
 Route::post('/deleteKeyboard',[KeyboardController::class,"delete"]);
 Route::get('/categories/{id}/search',[KeyboardController::class,"search"]);
