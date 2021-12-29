@@ -17,10 +17,9 @@
                         </thead>
                         <tbody>
                             <tr>
-                                
                                 <td class="col-5"><label for="username">Username</label></td>
                                 <td>
-                                    <input class="form-control" type="text" name="username" id="username" @error('username') is-invalid @enderror>
+                                    <input class="form-control @error('username') is-invalid @enderror" type="text" name="username" id="username" >
                                     @error('username')
                                         <p>{{$message}}</p>
                                     @enderror
