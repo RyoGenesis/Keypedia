@@ -27,7 +27,7 @@
                             <tr>
                                 <td class="col-5"><label  for="password">Password</label></td>
                                 <td>
-                                    <input class="form-control" type="password" name="password" id="password" @error('password') is-invalid @enderror>
+                                    <input class="form-control" type="password" name="password" id="password" value={{Cookie::get('password')!= null? Cookie::get("password"):""}} @error('password') is-invalid @enderror>
                                     @error('password')
                                         <p>{{$message}}</p>
                                     @enderror
