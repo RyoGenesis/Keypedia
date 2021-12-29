@@ -7,14 +7,14 @@
             <h1>Your Transaction History</h1>
         </div>
         <div class="body">
-            
-            @foreach ($transaction as $trans)
+            @forelse ($transaction as $trans)
                 <div class="w-50 m-auto bg-light text-center rounded-3">
                     <a href="/viewTransaction/detail/{{$trans->id}}">Transaction at {{$trans->transaction_date}}</a>
                 </div>
                 <div class="m-3"> </div>
-                
-            @endforeach
+            @empty
+                <p class="text-center position-relative" style="top: 2rem;">No Transaction Yet.</p>
+            @endforelse
         </div>
     </div>
     

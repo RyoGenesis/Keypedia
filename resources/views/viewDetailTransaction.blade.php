@@ -14,7 +14,7 @@ $total1 = 0; ?>
             <p>Keyboard Image</p>
         </div>
         <div class="col">
-            <p>Keboard Name</p>
+            <p>Keyboard Name</p>
         </div>
         <div class="col">
             <p>SubTotal</p>

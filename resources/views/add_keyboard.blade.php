@@ -11,15 +11,11 @@
                 <form action="/addKeyboard" method="POST" enctype="multipart/form-data">
                     @csrf
                     <table class="table table-borderless">
-                        <thead>
-
-                        </thead>
                         <tbody>
                             <tr>
-                                
                                 <td class="col-5"><label for="category">Category</label></td>
                                 <td>
-                                    <select class="form-select form-select-sm" name="category" id="category" @error('category') is-invalid @enderror>
+                                    <select class="form-select form-select-sm @error('category') is-invalid @enderror" name="category" id="category">
                                         <option value="" selected>Choose a category</option>
                                         @forelse ($categories as $category)
                                             <option value="{{$category->id}}">{{$category->category_name}}</option>
@@ -27,43 +23,43 @@
                                         @endforelse
                                     </select>
                                     @error('category')
-                                        <p>{{$message}}</p>
+                                        <p class="text-danger">{{$message}}</p>
                                     @enderror
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-5"><label for="name">Keyboard Name</label></td>
                                 <td>
-                                    <input class="form-control" type="text" name="name" id="name"  @error('name') is-invalid @enderror>
+                                    <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" id="name">
                                     @error('name')
-                                        <p>{{$message}}</p>
+                                        <p class="text-danger">{{$message}}</p>
                                     @enderror
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-5"><label  for="price">Keyboard Price ($)</label></td>
                                 <td>
-                                    <input class="form-control" type="number" name="price" min="0" id="price" @error('price') is-invalid @enderror>
+                                    <input class="form-control @error('price') is-invalid @enderror" type="number" name="price" min="0" id="price">
                                     @error('price')
-                                        <p>{{$message}}</p>
+                                        <p class="text-danger">{{$message}}</p>
                                     @enderror
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-5"><label  for="description">Description</label></td>
                                 <td>
-                                    <textarea  class="form-control" name="description" id="description" cols="50" rows="3" style="resize: none" @error('description') is-invalid @enderror></textarea>  
+                                    <textarea  class="form-control @error('description') is-invalid @enderror" name="description" id="description" cols="50" rows="3" style="resize: none"></textarea>  
                                     @error('description')
-                                        <p>{{$message}}</p>
+                                        <p class="text-danger">{{$message}}</p>
                                     @enderror
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-5"><label  for="image">Keyboard Image</label></td>
                                 <td>
-                                    <input type="file" name="image" id="image" @error('image') is-invalid @enderror>
+                                    <input class="@error('image') is-invalid @enderror" type="file" name="image" id="image">
                                     @error('image')
-                                        <p>{{$message}}</p>
+                                        <p class="text-danger">{{$message}}</p>
                                     @enderror
                                 </td>
                             </tr>

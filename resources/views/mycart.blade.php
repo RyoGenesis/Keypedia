@@ -49,7 +49,7 @@
                 </form>
             
             @else
-                <div><p>Cart is Empty</p></div>
+                <div class="text-center"><p>Cart is Empty</p></div>
             @endif
         </div>
     </div>

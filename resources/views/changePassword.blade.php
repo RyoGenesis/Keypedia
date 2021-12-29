@@ -11,35 +11,31 @@
                 <form action="/changePassword" method="POST">
                     @csrf
                     <table class="table table-borderless">
-                        <thead>
-
-                        </thead>
                         <tbody>
                             <tr>
                                 <td class="col-5"><label for="password">Current Password</label></td>
                                 <td>
-                                    <input class="form-control" type="password" name="password" id="password" @error('password') is-invalid @enderror>
+                                    <input class="form-control @error('password') is-invalid @enderror" type="password" name="password" id="password">
                                     @error('password')
-                                        <p>{{$message}}</p>
+                                        <p class="text-danger">{{$message}}</p>
                                     @enderror
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-5"><label  for="newPassword">New Password</label></td>
                                 <td>
-                                    <input class="form-control" type="password" name="newPassword" id="newPassword" @error('newPassword') is-invalid @enderror>
+                                    <input class="form-control @error('newPassword') is-invalid @enderror" type="password" name="newPassword" id="newPassword">
                                     @error('newPassword')
-                                        <p>{{$message}}</p>
+                                        <p class="text-danger">{{$message}}</p>
                                     @enderror
-                                    
                                 </td>
                             </tr>                
                             <tr>
                                 <td class="col-5"><label  for="confirm">Confirm New Password</label></td>
                                 <td>
-                                    <input class="form-control" type="password" name="confirm" id="confirm" @error('confirm') is-invalid @enderror>
+                                    <input class="form-control @error('confirm') is-invalid @enderror" type="password" name="confirm" id="confirm">
                                     @error('confirm')
-                                        <p>{{$message}}</p>
+                                        <p class="text-danger">{{$message}}</p>
                                     @enderror
                                     @if ($errors != null)
                                         @foreach ($errors->all() as $error)                                   
@@ -50,7 +46,6 @@
                                 </td>
                             </tr>
                             <tr>
-                                
                                 <td></td>
                                 <td><button class="btn btn-bg-purple btn-outline-light" type="submit">Update Password</button></td>
                             </tr>

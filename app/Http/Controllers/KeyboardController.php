@@ -112,7 +112,7 @@ class KeyboardController extends Controller
         print_r($request->id);
         $validation = [
             "category"=>'required',
-            "name"=>['required','min:5','unique:keyboards,id,'. $request->id],
+            "name"=>['required','min:5','unique:keyboards,name,'. $request->id],
             "price"=>"integer|numeric|min:1",
             "description"=>"required|min:20",
             "image"=>"nullable|image"

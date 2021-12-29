@@ -16,7 +16,7 @@ class TransactionController extends Controller
         if(Auth::check()){
             $categ = Category::all();
             $user = Auth::user();
-            $transaction = Transaction::where("user_id","=",$user->id)->get();
+            $transaction = Transaction::where("user_id",$user->id)->get();
             return view('viewTransaction')->with('categories',$categ)->with('transaction',$transaction);
         }else{
             return redirect('login');
@@ -26,7 +26,8 @@ class TransactionController extends Controller
     }
 
     public function getDetailTransaction($id){
-        $detail = DetailTransaction::where("transaction_id","=",$id)->get();
+        $detail = DetailTransaction::where("transaction_id",$id)->get();
+        //dd($detail);
         $categ = Category::all();
         return view('viewDetailTransaction')->with('details',$detail)->with('categories',$categ);
     }

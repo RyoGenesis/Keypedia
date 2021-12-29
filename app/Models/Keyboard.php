@@ -12,7 +12,7 @@ class Keyboard extends Model
     protected $table = "keyboards";
     protected $dates = ['deleted_at'];
     public function category(){
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class)->withTrashed();
     }
     public function cart(){
         return $this->hasMany(CartItem::class);

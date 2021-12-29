@@ -11,27 +11,22 @@
                 <form action="/addCategory" method="POST" enctype="multipart/form-data">
                     @csrf
                     <table class="table table-borderless">
-                        <thead>
-
-                        </thead>
                         <tbody>
-                            
                             <tr>
                                 <td class="col-5"><label for="category_name">Category Name</label></td>
                                 <td>
-                                    <input class="form-control" type="text" name="category_name" id="category_name"  @error('category_name') is-invalid @enderror>
+                                    <input class="form-control @error('category_name') is-invalid @enderror" type="text" name="category_name" id="category_name">
                                     @error('category_name')
-                                        <p>{{$message}}</p>
+                                        <p class="text-danger">{{$message}}</p>
                                     @enderror
                                 </td>
                             </tr>
-                            
                             <tr>
                                 <td class="col-5"><label  for="image">Category Image</label></td>
                                 <td>
-                                    <input type="file" name="image" id="image" @error('image') is-invalid @enderror>
+                                    <input class="@error('image') is-invalid @enderror" type="file" name="image" id="image">
                                     @error('image')
-                                        <p>{{$message}}</p>
+                                        <p class="text-danger">{{$message}}</p>
                                     @enderror
                                 </td>
                             </tr>

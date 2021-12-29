@@ -28,7 +28,7 @@
                                 <div><input type="hidden" name="keyboard_id" value="{{$keyboard->id}}" ></div>
                                 <div class="m-4">
                                     <label class="me-2" for="quantity">Quantity</label>
-                                    <input type="number" name="quantity" id="quantity" value="1"@error('quantity') is-invalid @enderror>                               
+                                    <input class="@error('quantity') is-invalid @enderror" type="number" name="quantity" id="quantity" value="1">                               
                                 </div>
                                 @error('quantity')
                                     <p class="text-danger">{{$message}}</p>

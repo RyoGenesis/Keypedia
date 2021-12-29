@@ -15,14 +15,12 @@
                     <form action="/updateKeyboard" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div><input type="hidden" name="id" value="{{$keyboard->id}}" ></div>
-                        <table class="table table-borderless text-end">
-                            <thead>
-                            </thead>
+                        <table class="table table-borderless text-start">
                             <tbody>
                                 <tr>
                                     <td><label for="category">Category</label></td>
                                     <td>
-                                        <select class="form-select form-select-sm" name="category" id="category" @error('category') is-invalid @enderror>
+                                        <select class="form-select form-select-sm @error('category') is-invalid @enderror" name="category" id="category">
                                             <option value="">Choose a category</option>
                                             @forelse ($categories as $category)
                                                 @if ($category->id == $keyboard->category_id)
@@ -34,43 +32,43 @@
                                             @endforelse
                                         </select>
                                         @error('category')
-                                            <p>{{$message}}</p>
+                                            <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><label for="name">Keyboard Name</label></td>
                                     <td>
-                                        <input class="form-control" type="text" name="name" id="name" value="{{$keyboard->name}}"  @error('name') is-invalid @enderror>
+                                        <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" id="name" value="{{$keyboard->name}}">
                                         @error('name')
-                                            <p>{{$message}}</p>
+                                            <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><label  for="price">Keyboard Price (US$)</label></td>
                                     <td>
-                                        <input class="form-control" type="number" name="price" min="0" id="price" value="{{$keyboard->price}}" @error('price') is-invalid @enderror>
+                                        <input class="form-control @error('price') is-invalid @enderror" type="number" name="price" min="0" id="price" value="{{$keyboard->price}}">
                                         @error('price')
-                                            <p>{{$message}}</p>
+                                            <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><label  for="description">Description</label></td>
                                     <td>
-                                        <textarea  class="form-control" name="description" id="description" cols="50" rows="3" style="resize: none" @error('description') is-invalid @enderror>{{$keyboard->description}}</textarea>  
+                                        <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description" cols="50" rows="3" style="resize: none">{{$keyboard->description}}</textarea>  
                                         @error('description')
-                                            <p>{{$message}}</p>
+                                            <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><label  for="image">Keyboard Image</label></td>
+                                    <td><label for="image">Keyboard Image</label></td>
                                     <td class="text-start">
-                                        <input type="file" name="image" id="image" @error('image') is-invalid @enderror>
+                                        <input class="@error('image') is-invalid @enderror" type="file" name="image" id="image">
                                         @error('image')
-                                            <p>{{$message}}</p>
+                                            <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </td>
                                 </tr>
