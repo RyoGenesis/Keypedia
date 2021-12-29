@@ -39,7 +39,7 @@
                                     @enderror
                                     @if ($errors != null)
                                         @foreach ($errors->all() as $error)                                   
-                                            @if($error == "Old Password is wrong!")<p>{{$error}}</p>@endif
+                                            @if($error == "Old Password is wrong!")<p class="text-danger">{{$error}}</p>@endif
                                             @if($error == "Change Password Success!")<p class="text-success">{{$error}}</p>@endif
                                         @endforeach
                                     @endif
