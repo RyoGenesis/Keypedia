@@ -14,6 +14,6 @@ class CartItem extends Model
     }
 
     public function keyboard(){
-        return $this->belongsTo(Keyboard::class);
+        return $this->belongsTo(Keyboard::class)->withTrashed();
     }
 }
