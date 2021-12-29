@@ -18,22 +18,22 @@
                         <tr>
                             <td class="col-5"><label for="email">E-mail Address</label></td>
                             <td>
-                                <input class="form-control" type="text" name="email_address" id="email" value={{Cookie::get('email')!= null? Cookie::get("email"):""}} @error('email_address') is-invalid @enderror>
+                                <input class="form-control @error('email_address') is-invalid @enderror" type="text" name="email_address" id="email" value={{Cookie::get('email')!= null? Cookie::get("email"):""}}>
                                 @error('email_address')
-                                <p>{{$message}}</p>
+                                <p class="text-danger">{{$message}}</p>
                                 @enderror
                             </td>
                         </tr>
                         <tr>
                             <td class="col-5"><label for="password">Password</label></td>
                             <td>
-                                <input class="form-control" type="password" name="password" id="password" value={{Cookie::get('password')!= null? Cookie::get("password"):""}} @error('password') is-invalid @enderror>
+                                <input class="form-control @error('password') is-invalid @enderror" type="password" name="password" id="password" value={{Cookie::get('password')!= null? Cookie::get("password"):""}}>
                                 @error('password')
-                                <p>{{$message}}</p>
+                                <p class="text-danger">{{$message}}</p>
                                 @enderror
                                 @if ($errors != null)
                                 @foreach ($errors->all() as $error)
-                                @if($error == "Invalid Account!")<p>{{$error}}</p>@endif
+                                @if($error == "Invalid Account!")<p class="text-danger">{{$error}}</p>@endif
                                 @endforeach
                                 @endif
                                 

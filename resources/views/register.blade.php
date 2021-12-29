@@ -12,53 +12,49 @@
             <form action="/addUser" method="POST">
                 @csrf
                 <table class="table table-borderless">
-                    <thead>
-
-                    </thead>
                     <tbody>
                         <tr>
-
                             <td class="col-5"><label for="username">Username</label></td>
                             <td>
-                                <input class="form-control" type="text" name="username" id="username" @error('username') is-invalid @enderror>
+                                <input class="form-control @error('username') is-invalid @enderror" type="text" name="username" id="username">
                                 @error('username')
-                                <p>{{$message}}</p>
+                                <p class="text-danger">{{$message}}</p>
                                 @enderror
                             </td>
                         </tr>
                         <tr>
                             <td class="col-5"><label for="email">E-mail Address</label></td>
                             <td>
-                                <input class="form-control" type="text" name="email_address" id="email" @error('email_address') is-invalid @enderror>
+                                <input class="form-control @error('email_address') is-invalid @enderror" type="text" name="email_address" id="email">
                                 @error('email_address')
-                                <p>{{$message}}</p>
+                                <p class="text-danger">{{$message}}</p>
                                 @enderror
                             </td>
                         </tr>
                         <tr>
                             <td class="col-5"><label for="password">Password</label></td>
                             <td>
-                                <input class="form-control" type="password" name="password" id="password" @error('password') is-invalid @enderror>
+                                <input class="form-control @error('password') is-invalid @enderror" type="password" name="password" id="password">
                                 @error('password')
-                                <p>{{$message}}</p>
+                                <p class="text-danger">{{$message}}</p>
                                 @enderror
                             </td>
                         </tr>
                         <tr>
                             <td class="col-5"><label for="confirm">Confirm Password</label></td>
                             <td>
-                                <input class="form-control" type="password" name="confirm" id="confirm" @error('confirm') is-invalid @enderror>
+                                <input class="form-control @error('confirm') is-invalid @enderror" type="password" name="confirm" id="confirm">
                                 @error('confirm')
-                                <p>{{$message}}</p>
+                                <p class="text-danger">{{$message}}</p>
                                 @enderror
                             </td>
                         </tr>
                         <tr>
                             <td class="col-5"><label for="address">Address</label></td>
                             <td>
-                                <textarea class="form-control" name="address" id="address" cols="50" rows="2" @error('address') is-invalid @enderror></textarea>
+                                <textarea class="form-control @error('address') is-invalid @enderror" name="address" id="address" cols="50" rows="2"></textarea>
                                 @error('address')
-                                <p>{{$message}}</p>
+                                <p class="text-danger">{{$message}}</p>
                                 @enderror
                             </td>
                         </tr>
@@ -66,24 +62,24 @@
                             <td><label class="col-4" for="gender">Gender</label></td>
                             <td>
                                 <div class="form-check form-check-inline">
-                                    <input type="radio" name="gender" id="male" value="Male" @error('gender') is-invalid @enderror>
+                                    <input class="@error('gender') is-invalid @enderror" type="radio" name="gender" id="male" value="Male">
                                     <label for="male">Male</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input type="radio" name="gender" id="female" value="Female" @error('gender') is-invalid @enderror>
+                                    <input class="@error('gender') is-invalid @enderror" type="radio" name="gender" id="female" value="Female">
                                     <label for="female">Female</label>
                                 </div>
                                 @error('gender')
-                                <p>{{$message}}</p>
+                                <p class="text-danger">{{$message}}</p>
                                 @enderror
                             </td>
                         </tr>
                         <tr>
                             <td class="col-5"><label for="dob">Date Of Birth</label></td>
                             <td>
-                                <input class="form-control" type="date" name="dob" id="dob" @error('dob') is-invalid @enderror>
+                                <input class="form-control @error('dob') is-invalid @enderror" type="date" name="dob" id="dob">
                                 @error('dob')
-                                <p>{{$message}}</p>
+                                <p class="text-danger">{{$message}}</p>
                                 @enderror
                             </td>
                         </tr>
@@ -91,9 +87,6 @@
                             <td></td>
                             <td>
                                 <button class="btn btn-outline-light btn-bg-purple" type="submit">Register</button>
-                                @if (session('success'))
-                                <p>{{session('success')}}</p>
-                                @endif
                             </td>
                         </tr>
                     </tbody>
@@ -107,92 +100,6 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Register Confirmation</h5>
-
-<<<<<<< HEAD
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="col-5"><label for="username">Username</label></td>
-                                <td>
-                                    <input class="form-control @error('username') is-invalid @enderror" type="text" name="username" id="username" >
-                                    @error('username')
-                                        <p>{{$message}}</p>
-                                    @enderror
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-5"><label for="email">E-mail Address</label></td>
-                                <td>
-                                    <input class="form-control" type="text" name="email_address" id="email"  @error('email_address') is-invalid @enderror>
-                                    @error('email_address')
-                                        <p>{{$message}}</p>
-                                    @enderror
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-5"><label  for="password">Password</label></td>
-                                <td>
-                                    <input class="form-control" type="password" name="password" id="password" @error('password') is-invalid @enderror>
-                                    @error('password')
-                                        <p>{{$message}}</p>
-                                    @enderror
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-5"><label  for="confirm">Confirm Password</label></td>
-                                <td>
-                                    <input class="form-control" type="password" name="confirm" id="confirm" @error('confirm') is-invalid @enderror>
-                                    @error('confirm')
-                                        <p>{{$message}}</p>
-                                    @enderror
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-5"><label  for="address">Address</label></td>
-                                <td>
-                                    <textarea  class="form-control" name="address" id="address" cols="50" rows="2" @error('address') is-invalid @enderror></textarea>  
-                                    @error('address')
-                                        <p>{{$message}}</p>
-                                    @enderror
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><label class="col-4" for="gender">Gender</label></td>
-                                <td>
-                                    <div class="form-check form-check-inline">
-                                        <input type="radio" name="gender" id="male" value="Male" @error('gender') is-invalid @enderror>
-                                        <label for="male">Male</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input type="radio" name="gender" id="female" value="Female" @error('gender') is-invalid @enderror>
-                                        <label for="female">Female</label>
-                                    </div>
-                                    @error('gender')
-                                        <p>{{$message}}</p>
-                                    @enderror
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-5"><label for="dob">Date Of Birth</label></td>
-                                <td>
-                                    <input class="form-control" type="date" name="dob" id="dob" @error('dob') is-invalid @enderror>
-                                    @error('dob')
-                                        <p>{{$message}}</p>
-                                    @enderror
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>
-                                    <button class="btn btn-outline-light btn-bg-purple" type="submit">Register</button>
-                                    @if (session('success'))
-                                        <p>{{session('success')}}</p>
-                                    @endif
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>                  
-=======
             </div>
             <div class="modal-body">
                 Register is Successfull!, Redirecting you to Login Page!
@@ -200,7 +107,6 @@
             <div class="modal-footer">
                 <form action="/login" method="get">
                     <button type="submit" class="btn btn-success modal-close" data-dismiss="modal">Confirm</button>
->>>>>>> 4631af38faf677a80931fa5fdd825326bd45004e
                 </form>
 
             </div>
