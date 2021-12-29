@@ -27,6 +27,7 @@ class AuthController extends Controller
         // $user = User::where('email_address','=',$request["email_address"])->where('password','=',$request['password'])->first();
         if($request->remember){
             Cookie::queue('email',$credential['email_address'],10080);
+            Cookie::queue('password',$credential['password'],10080);
         }
         if(Auth::attempt($credential,true)) return redirect("/home");
         else{
@@ -50,7 +51,7 @@ class AuthController extends Controller
         "email_address"=>$request->email_address,"password"=>Hash::make($request->password),
         "address"=>$request->address,"gender"=>$request->gender,"dob"=>$request->dob];
         DB::table("users")->insert($user);
-        return redirect()->back()->with("success","Register Success!");
+        return redirect()->back()->with("success","Register Success!")->withSuccess("Register Success!");
     }
     
     public function viewChangePassword(){

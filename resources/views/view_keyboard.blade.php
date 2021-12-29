@@ -13,7 +13,7 @@
                 <input class="form-control" type="search" name="input" id="search_text" placeholder="Search...">
             </div>
             <div class="col-2">
-                <select class="form-select" style="" name="category" id="category">
+                <select class="form-select"  name="category" id="category">
                     <option value="" disabled>Choose a category</option>
                     <option value="name" selected>Name</option>
                     <option value="price">Price (Exact)</option>
