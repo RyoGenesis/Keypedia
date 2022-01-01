@@ -19,10 +19,8 @@ class EnsureManager
     {
         if (Auth::guest()) {
             return redirect('login');
-        }else{
-            if(Auth::user()->role->role_name != "Manager"){
-                return redirect('home');
-            }
+        }else if(Auth::user()->role->role_name != "Manager"){
+            return redirect('home');
         }
 
         return $next($request);
