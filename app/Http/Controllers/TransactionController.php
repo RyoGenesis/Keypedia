@@ -16,7 +16,7 @@ class TransactionController extends Controller
         if(Auth::check()){
             $categ = Category::all();
             $user = Auth::user();
-            $transaction = Transaction::where("user_id",$user->id)->get();
+            $transaction = Transaction::where("user_id",$user->id)->orderBy('transaction_date','DESC')->get();
             return view('viewTransaction')->with('categories',$categ)->with('transaction',$transaction);
         }else{
             return redirect('login');

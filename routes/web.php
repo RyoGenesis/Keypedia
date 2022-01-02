@@ -32,12 +32,14 @@ Route::middleware('guest')->group(function(){
     Route::post('/doLogin',[AuthController::class,"doLogin"])->name('login');
 });
 
-Route::get('/logout', [AuthController::class,"logout"])->middleware('auth')->name('logout');
+Route::middleware('auth')->group(function(){
+    Route::get('/logout', [AuthController::class,"logout"])->name('logout');
+
+    Route::get('/change-password',[AuthController::class,"viewChangePassword"])->name('change-pass.index');
+    Route::post('/changePassword',[AuthController::class,"changePassword"])->name('change-pass');
+});
 
 Route::middleware(EnsureAuth::class)->group(function(){
-    Route::get('/changePassword',[AuthController::class,"viewChangePassword"])->name('change-pass.index');
-    Route::post('/changePassword',[AuthController::class,"changePassword"])->name('change-pass');
-
     Route::get('/myCart',[MyCartController::class,'index'])->name('cart-index');
     Route::post('/addtocart', [MyCartController::class,'insert'])->name('add-to-cart');
 });

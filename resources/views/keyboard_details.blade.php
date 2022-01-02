@@ -22,7 +22,7 @@
                     <p>{{$keyboard->description}}</p> 
                     @if(Auth::guest() || Auth::user()->role->role_name == "Customer")
                         <div class="text-center">
-                            <form action="/addtocart" method="post">
+                            <form action="{{ route('add-to-cart') }}" method="post">
                                 @csrf
                                 
                                 <div><input type="hidden" name="keyboard_id" value="{{$keyboard->id}}" ></div>
@@ -33,7 +33,10 @@
                                 @error('quantity')
                                     <p class="text-danger">{{$message}}</p>
                                 @enderror
-                                <div class="m-auto" style="width:fit-content;"><button class="btn btn-bg-purple text-white" type="submit">Add to Cart</button></div> 
+                                <div class="m-auto" style="width:fit-content;"><button class="btn btn-bg-purple text-white" type="submit">Add to Cart</button></div>
+                                @if (session('success'))
+                                    <p class="text-success">{{session('success')}}</p>
+                                @endif 
                             </form>       
                         </div>
                     @endif

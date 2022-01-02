@@ -20,7 +20,7 @@
                             <p>Subtotal : ${{$cart->keyboard->price*$cart->quantity}}</p> 
                         </div>
                         <div style="margin:10px">
-                            <form action="/updateCart" method="post">
+                            <form action="{{ route('update-cart') }}" method="post">
                                 @csrf
                                 @error('quantity')
                                     <p class="text-danger">{{$message}}</p>
@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 @endforeach
-                <form action="/updateTransaction" method="POST">
+                <form action="{{ route('add-transaction') }}" method="POST">
                     @csrf
                     <div class="m-auto" style="width: fit-content;">
                         <button class="btn btn-bg-purple text-white" type="submit">Checkout</button>

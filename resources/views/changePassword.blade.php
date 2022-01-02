@@ -8,7 +8,7 @@
         </div>
         <div class="card-body">
             <div class="w-75 m-auto">
-                <form action="/changePassword" method="POST">
+                <form action="{{ route('change-pass') }}" method="POST">
                     @csrf
                     <table class="table table-borderless">
                         <tbody>

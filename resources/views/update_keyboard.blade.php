@@ -12,7 +12,7 @@
                     <img class="img-fluid" src="{{asset('storage/'.$keyboard->image_path)}}" alt="">
                 </div>
                 <div class="col-lg-8 col-md-12 col-sm-12 table-responsive">
-                    <form action="/updateKeyboard" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('keyboard.update') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div><input type="hidden" name="id" value="{{$keyboard->id}}" ></div>
                         <table class="table table-borderless text-start">
@@ -77,7 +77,7 @@
                                     <td class="text-start">
                                         <button class="btn btn-outline-light btn-bg-purple" type="submit">Update</button>
                                         @if (session('success'))
-                                            <p>{{session('success')}}</p>
+                                            <p class="text-success">{{session('success')}}</p>
                                         @endif
                                     </td>
                                 </tr>

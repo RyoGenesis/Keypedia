@@ -8,7 +8,7 @@
         </div>
         <div class="card-body">
             <div class="w-75 m-auto">
-                <form action="/addCategory" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('category.add') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <table class="table table-borderless">
                         <tbody>
@@ -35,7 +35,7 @@
                                 <td>
                                     <button class="btn btn-outline-light btn-bg-purple" type="submit">Add</button>
                                     @if (session('success'))
-                                        <p>{{session('success')}}</p>
+                                        <p class="text-success">{{session('success')}}</p>
                                     @endif
                                 </td>
                             </tr>

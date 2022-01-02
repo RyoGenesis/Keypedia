@@ -8,7 +8,7 @@
     </div>
     <div class="card-body">
         <div class="w-75 m-auto">
-            <form action="/doLogin" method="POST">
+            <form action="{{ route('login') }}" method="POST">
                 @csrf
                 <table class="table table-borderless">
                     <tbody>

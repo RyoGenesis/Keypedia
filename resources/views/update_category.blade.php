@@ -12,7 +12,7 @@
                     <img class="img-fluid" src="{{asset('storage/'.$category->image_path)}}" alt="">
                 </div>
                 <div class="col-lg-8 col-md-12 col-sm-12 table-responsive">
-                    <form action="/updateCategory" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('category.update') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div><input type="hidden" name="id" value="{{$category->id}}" ></div>
                         <table class="table table-borderless text-start">
@@ -40,7 +40,7 @@
                                     <td class="text-start">
                                         <button class="btn btn-outline-light btn-bg-purple" type="submit">Update</button>
                                         @if (session('success'))
-                                            <p>{{session('success')}}</p>
+                                            <p class="text-success">{{session('success')}}</p>
                                         @endif
                                     </td>
                                 </tr>

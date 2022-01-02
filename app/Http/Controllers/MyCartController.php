@@ -75,11 +75,11 @@ class MyCartController extends Controller
             $cartItem->user_id = Auth::user()->id;
             $cartItem->quantity = $request->quantity;
             $cartItem->save();
-            return redirect()->back();
+            return redirect()->back()->with('success','Added To Cart!');
         } 
             
         $cartItem->quantity += $request->quantity;
         $cartItem->save();
-        return redirect()->back();
+        return redirect()->back()->with('success','Added To Cart!');
     }
 }

@@ -9,7 +9,7 @@
     </div>
     <div class="card-body">
         <div class="w-75 m-auto">
-            <form action="/addUser" method="POST">
+            <form action="{{ route('register') }}" method="POST">
                 @csrf
                 <table class="table table-borderless">
                     <tbody>
@@ -105,7 +105,7 @@
                 Register is Successfull!, Redirecting you to Login Page!
             </div>
             <div class="modal-footer">
-                <form action="/login" method="get">
+                <form action="{{ route('login.index') }}" method="get">
                     <button type="submit" class="btn btn-success modal-close" data-dismiss="modal">Confirm</button>
                 </form>
 
