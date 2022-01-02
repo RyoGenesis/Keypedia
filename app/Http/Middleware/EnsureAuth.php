@@ -20,6 +20,9 @@ class EnsureAuth
         if (Auth::guest()) {
             return redirect('login');
         }
+        else if(Auth::user()->role->role_name != "Customer"){
+            return redirect('home');
+        }
 
         return $next($request);
     }
