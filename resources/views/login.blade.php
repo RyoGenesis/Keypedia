@@ -11,9 +11,6 @@
             <form action="/doLogin" method="POST">
                 @csrf
                 <table class="table table-borderless">
-                    <thead>
-
-                    </thead>
                     <tbody>
                         <tr>
                             <td class="col-5"><label for="email">E-mail Address</label></td>
@@ -53,8 +50,4 @@
         </div>
     </div>
 </div>
-
-
-
-
 @endsection

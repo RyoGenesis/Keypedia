@@ -22,6 +22,7 @@ class KeyboardController extends Controller
 
     public function search(Request $request){
         $validation = [
+            "input"=>'required',
             "category"=>'required|string|in:name,price,price less,price more',
         ];
 
@@ -97,7 +98,6 @@ class KeyboardController extends Controller
         $keyboard->image_path = $imagePath;
         $keyboard->save();
         return redirect()->back()->with("success","Adding New Keyboard Success!");
-        //might change later
     }
 
     public function updateIndex($id){
@@ -122,7 +122,7 @@ class KeyboardController extends Controller
         $id = $request->id;
 
         $keyboard = Keyboard::find($id);
-        if($keyboard == null) return redirect()->back(); //for safety
+        if($keyboard == null) return redirect()->back();
 
         $imgfile = $request->file('image');
 
@@ -144,7 +144,7 @@ class KeyboardController extends Controller
 
     public function delete(Request $request){
         $keyboard = Keyboard::find($request->id);
-        if($keyboard == null) return redirect()->back(); //for safety
+        if($keyboard == null) return redirect()->back();
 
         $keyboard->delete();
         return redirect()->back();

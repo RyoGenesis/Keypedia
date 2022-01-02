@@ -6,7 +6,7 @@
     <div class="col-12 text-center category-header rounded-3" style="background-color: rgb(157, 255, 245)">
         <h2>{{$category->category_name}}</h2>
     </div>
-    {{--input field search here--}}
+    
     <form action="{{url('/categories/'.$category->id.'/search')}}" method="get">
         <div class="m-2 form-group row">
             <div class="col-3">
@@ -35,7 +35,7 @@
     @if (!empty($success))
         <p class="fw-bold">{{$success}}</p>
     @endif
-    {{--input field search here end--}}
+    
     <div class="col-12 px-lg-5 row row-cols-lg-3 row-cols-sm-2 row-cols-md-2 mx-auto justify-content-center">
         @forelse ($keyboards as $keyboard)
         <div class="col px-lg-4">

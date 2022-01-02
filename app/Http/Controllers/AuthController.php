@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    //
+
     public function login(){
         return view('login');
-
     }
+
     public function doLogin(Request $request){
         $validation = [
             "email_address"=>"required",
@@ -35,6 +35,7 @@ class AuthController extends Controller
 
         }
     }
+    
     public function addUser(Request $request){
         $validation = [
             "username"=>'required|min:5',
@@ -67,8 +68,6 @@ class AuthController extends Controller
             "confirm"=>"required|same:newPassword"
         ];
         $request->validate($validate);
-
-
 
         if(!Hash::check($request->password,Auth::user()->password)){
             return redirect()->back()->withErrors("Old Password is wrong!");

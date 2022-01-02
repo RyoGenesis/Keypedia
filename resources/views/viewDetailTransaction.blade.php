@@ -56,7 +56,4 @@ $total1 = 0; ?>
 <div>
 
 </div>
-
-
-
 @endsection

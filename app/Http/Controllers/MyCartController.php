@@ -27,11 +27,8 @@ class MyCartController extends Controller
         $request->validate($validation);
         
         if($request->quantity == 0){
-            //where("keyboard_id","=",$request->keyboard_id)->where("user_id","=",Auth::user()->id)->first()->get()
-            //CartItem::where("keyboard_id","=",$request->keyboard_id)->where("user_id","=",Auth::user()->id)->first();
             $cart = DB::table("cart_items")->where("keyboard_id",$request->keyboard_id)->where("user_id",Auth::user()->id)->delete();
-            // print_r($cart);
-            // $cart->delete();
+
             return redirect()->back();
         }else{
             echo Auth::user()->id;
@@ -79,7 +76,6 @@ class MyCartController extends Controller
             $cartItem->quantity = $request->quantity;
             $cartItem->save();
             return redirect()->back();
-            //temporary, later will add a modal for success message
         } 
             
         $cartItem->quantity += $request->quantity;

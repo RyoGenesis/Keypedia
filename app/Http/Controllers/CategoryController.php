@@ -10,7 +10,7 @@ use Illuminate\Validation\Rule;
 
 class CategoryController extends Controller
 {
-    //
+
     public function index($id){
         $categ = Category::all();
 
@@ -25,6 +25,7 @@ class CategoryController extends Controller
         $categ = Category::all();
         return view('manage_categories')->with('categories', $categ);
     }
+    
     public function viewAddCategory(){
         $categ = Category::all();
         return view('add_category')->with('categories', $categ);
@@ -67,7 +68,7 @@ class CategoryController extends Controller
         $id = $request->id;
 
         $category = Category::find($id);
-        if($category == null) return redirect()->back(); //for safety
+        if($category == null) return redirect()->back();
 
         $imgfile = $request->file('image');
 
@@ -86,9 +87,8 @@ class CategoryController extends Controller
 
     public function delete(Request $request){
         $category = Category::find($request->id);
-        if($category == null) return redirect()->back(); //for safety
+        if($category == null) return redirect()->back();
 
-        // Storage::delete('public/'.$category->image_path);
         $category->delete();
         return redirect()->back();
     }

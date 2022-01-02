@@ -17,11 +17,9 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/register">Register</a>
                     </li>
-                    @endguest
-                    
+                    @endguest                   
                    
                     @auth
-                    
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Categories
@@ -60,8 +58,7 @@
                         </li>    
                         @endif
                     @endauth
-                    
-                    
+
                     <p class="navbar-text ms-2 mb-0">@php date_default_timezone_set('Asia/Jakarta'); echo date("D, d-M-Y"); @endphp</p>     
                 </ul>
             </div>

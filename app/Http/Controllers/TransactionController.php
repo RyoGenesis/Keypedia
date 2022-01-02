@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
 {
-    //
+    
     public function getTransaction(){
         if(Auth::check()){
             $categ = Category::all();
@@ -21,13 +21,11 @@ class TransactionController extends Controller
         }else{
             return redirect('login');
         }
-        
-        
     }
 
     public function getDetailTransaction($id){
         $detail = DetailTransaction::where("transaction_id",$id)->get();
-        //dd($detail);
+
         $categ = Category::all();
         return view('viewDetailTransaction')->with('details',$detail)->with('categories',$categ);
     }

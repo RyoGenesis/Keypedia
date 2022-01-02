@@ -11,9 +11,7 @@
             @if ($carts->count() != 0)
                 @foreach ( $carts as $cart)
                 <div style="display:flex; margin-top:10px">
-                    
                     <div><img src="{{asset('storage/'.$cart->keyboard->image_path)}}" alt="test" width="300px"></div>
-                    
                     <div>
                         <div style="margin:10px">
                             <h3>{{$cart->keyboard->name}}</h3>   
@@ -47,7 +45,6 @@
                         <button class="btn btn-bg-purple text-white" type="submit">Checkout</button>
                     </div>
                 </form>
-            
             @else
                 <div class="text-center"><p>Cart is Empty</p></div>
             @endif
