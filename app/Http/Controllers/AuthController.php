@@ -32,7 +32,7 @@ class AuthController extends Controller
         if(Auth::attempt($credential,true)) return redirect("/home");
         else{
             return redirect()->back()->withErrors("Invalid Account!");
-           
+
         }
     }
     public function addUser(Request $request){
@@ -46,14 +46,14 @@ class AuthController extends Controller
             "dob"=>"required"
         ];
         $temp = $request->validate($validation);
-        
+
         $user = ["role_id"=>2,"username"=>$request->username,
         "email_address"=>$request->email_address,"password"=>Hash::make($request->password),
         "address"=>$request->address,"gender"=>$request->gender,"dob"=>$request->dob];
         DB::table("users")->insert($user);
         return redirect()->back()->with("success","Register Success!")->withSuccess("Register Success!");
     }
-    
+
     public function viewChangePassword(){
         $categ = Category::all();
 
@@ -67,9 +67,9 @@ class AuthController extends Controller
             "confirm"=>"required|same:newPassword"
         ];
         $request->validate($validate);
-        print_r(Hash::make($request->password));
-        
-        
+
+
+
         if(!Hash::check($request->password,Auth::user()->password)){
             return redirect()->back()->withErrors("Old Password is wrong!");
         }
